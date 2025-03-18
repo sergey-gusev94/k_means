@@ -2,13 +2,12 @@
 
 import argparse
 from pathlib import Path
-from typing import List, Tuple
 
 import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def read_csv_data(file_path: Path, x_col: str, y_col: str) -> Tuple[List[float], List[float]]:
+def read_csv_data(file_path: Path, x_col: str, y_col: str) -> tuple[list[float], list[float]]:
     """Read data from a CSV file and return specified columns.
 
     Args:
@@ -24,7 +23,7 @@ def read_csv_data(file_path: Path, x_col: str, y_col: str) -> Tuple[List[float],
 
 
 def create_plot(
-    x_data: List[float], y_data: List[float], x_label: str, y_label: str, title: str
+    x_data: list[float], y_data: list[float], x_label: str, y_label: str, title: str
 ) -> plt.Figure:
     """Create a plot from the provided data.
 

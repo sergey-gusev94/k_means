@@ -88,5 +88,25 @@ pip install -e ".[dev]"
 5. Run tests: `pytest`
 6. Submit a pull request
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+> **Note**: Without a license, the code is under exclusive copyright by default. This means no one can copy, distribute, or modify your work without facing potential legal consequences. Adding a license (like MIT) explicitly grants these permissions, making it clear how others can use your code.
+
 ## Author
 Graham Neubig (neubig@gmail.com)
+
+## Citation
+
+If you use this repository in your research, please cite it using the following BibTeX entry:
+
+```bibtex
+@misc{neubig2025starter,
+  author = {Graham Neubig},
+  title = {Python Project Starter Repository},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/neubig/starter-repo}}
+}

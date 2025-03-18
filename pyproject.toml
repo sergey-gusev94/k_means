@@ -13,7 +13,8 @@ authors = [
 ]
 description = "A starter repository demonstrating Python best practices"
 readme = "README.md"
-requires-python = ">=3.8"
+license = "MIT"
+requires-python = ">=3.11"
 dependencies = [
     "pandas",
     "matplotlib",
@@ -25,18 +26,16 @@ dev = [
     "ruff",
     "mypy",
     "pre-commit",
+    "pandas-stubs",
 ]
 
 [tool.ruff]
-select = ["E", "F", "I"]
 line-length = 100
 
-[tool.mypy]
-python_version = "3.8"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
-check_untyped_defs = true
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
