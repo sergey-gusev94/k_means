@@ -12,7 +12,7 @@ This repository serves as a template demonstrating Python best practices for dat
 ## Features
 
 ### 1. Data Processing and Visualization
-The main script ([src/starter_repo/plot_data.py](src/starter_repo/plot_data.py)) demonstrates:
+The main script ([starter_repo/plot_data.py](starter_repo/plot_data.py)) demonstrates:
 - Reading CSV files using pandas
 - Creating plots with matplotlib
 - Modern Python type annotations
@@ -58,9 +58,8 @@ GitHub Actions workflows are set up for:
 ### 5. Project Structure
 ```
 .
-|- src/
-|  |- starter_repo/      # Source code
-|     |- plot_data.py   # Main script
+|- starter_repo/         # Source code
+|  |- plot_data.py      # Main script
 |- tests/                 # Test files
 |  |- test_plot_data.py
 |- data/                  # Sample data
