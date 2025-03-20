@@ -1,6 +1,6 @@
 # Python Project Starter Repository
 
-This repository serves as a template demonstrating Python best practices for data analysis projects. It includes:
+This repository serves as a template demonstrating Python best practices for research projects. It includes:
 
 - An example Python program (reading in data and plotting)
 - Command-line argument parsing ([argparse](https://docs.python.org/3/library/argparse.html))
