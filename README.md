@@ -83,7 +83,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Citation
 
 This was created by [Graham Neubig](https://phontron.com) primarily as an example for student researchers.
-If you use this repository in your research, please cite it using the following BibTeX entry:
+
+One final thing: when you publish your research code, it's good to add a BibTeX entry like this to the paper (or just the repo) so people can cite it easily:
 
 ```bibtex
 @misc{neubig2025starter,
