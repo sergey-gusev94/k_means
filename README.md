@@ -61,7 +61,7 @@ pre-commit install
 
 GitHub Actions workflows are set up for:
 
-- [Linting](.github/workflows/lint.yml): Runs Ruff and mypy
+- [Linting](.github/workflows/lint.yml): Runs pre-commit hooks (Ruff and mypy)
 - [Testing](.github/workflows/test.yml): Runs pytest on multiple Python versions
 
 
