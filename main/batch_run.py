@@ -282,7 +282,7 @@ if __name__ == "__main__":
         # {"solver": "gurobi", "subsolver": None},
         # {"solver": "gurobi", "subsolver": 'persistent'},
         # {"solver": "gams", "subsolver": "ipopth"},
-        # {"solver": "gams", "subsolver": "scip"},
+        {"solver": "gams", "subsolver": "scip"},
         # {"solver": "scip", "subsolver": None},
     ]
 
@@ -300,9 +300,9 @@ if __name__ == "__main__":
     # Generate a batch of models
     if batch_path is None or not os.path.exists(batch_path):
         batch_path = generate_batch(
-            n_dimensions_range=[5],
-            n_clusters_range=[5],
-            n_points_range=[10],
+            n_dimensions_range=[2, 3, 5],
+            n_clusters_range=[3, 5],
+            n_points_range=[10, 20],
             coord_range=(-1, 1),
             mode=mode,
             solver="gams",  # For initial model generation only
