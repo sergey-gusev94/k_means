@@ -18,6 +18,8 @@ def build_model(
     model.n_dimensions = pyo.Param(initialize=n_dimensions)
     model.n_clusters = pyo.Param(initialize=n_clusters)
     model.n_points = pyo.Param(initialize=n_points)
+    model.coord_range_lower = pyo.Param(initialize=coord_range[0])
+    model.coord_range_upper = pyo.Param(initialize=coord_range[1])
 
     # Sets (1-based indexing)
     model.dimensions = pyo.Set(initialize=pyo.RangeSet(n_dimensions))
@@ -37,8 +39,14 @@ def build_model(
     )
 
     # Variables
-    model.center_coordinates = pyo.Var(model.clusters, model.dimensions, within=pyo.Reals)
-    model.distance = pyo.Var(model.points, within=pyo.Reals)
+    model.center_coordinates = pyo.Var(
+        model.clusters, model.dimensions, within=pyo.Reals, bounds=(coord_range[0], coord_range[1])
+    )
+    model.distance = pyo.Var(
+        model.points,
+        within=pyo.NonNegativeReals,
+        bounds=(0, model.n_points * (coord_range[1] - coord_range[0]) * model.n_dimensions),
+    )
 
     # Symmetry-breaking constraint: c_{k-1,1} <= c_{k,1} for k in 2..n_clusters
     def symmetry_breaking_rule(model, k):
@@ -50,11 +58,16 @@ def build_model(
 
     # Disjuncts: For each (i, k), if Y_ik is true, then d_i >= sum_j (p_ij - c_kj)^2
     def disjunct_rule(disj, k, i):
-        return disj.model().distance[i] >= sum(
-            (disj.model().points_coordinates[i, j] - disj.model().center_coordinates[k, j]) ** 2
-            for j in disj.model().dimensions
+        m = disj.model()
+        # Attach a Constraint to the disjunct itself
+        disj.cons = pyo.Constraint(
+            expr=m.distance[i]
+            >= sum(
+                (m.points_coordinates[i, j] - m.center_coordinates[k, j]) ** 2 for j in m.dimensions
+            )
         )
 
+    # Rebuild the Disjunct component with this rule:
     model.disjunct_blocks = gdp.Disjunct(model.clusters, model.points, rule=disjunct_rule)
 
     # Disjunction: For each i, exactly one k is assigned
