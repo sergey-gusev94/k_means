@@ -483,7 +483,10 @@ def save_results(
     # Get bound from solver results
     bound = None
     try:
-        if hasattr(result, "problem") and hasattr(result.problem, "lower_bound"):
+        if hasattr(result, "solver") and hasattr(result.solver, "dual_bound"):
+            # SCIP stores the dual bound here, especially for time limit cases
+            bound = result.solver.dual_bound
+        elif hasattr(result, "problem") and hasattr(result.problem, "lower_bound"):
             bound = result.problem.lower_bound
         elif hasattr(result, "solver") and hasattr(result.solver, "best_objective_bound"):
             bound = result.solver.best_objective_bound

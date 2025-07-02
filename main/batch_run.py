@@ -293,16 +293,17 @@ if __name__ == "__main__":
         "batches",
         "kmeans_test.txt",
     )
-    # batch_path = None
+
+    batch_path = None
 
     only_generate = False
 
     # Generate a batch of models
     if batch_path is None or not os.path.exists(batch_path):
         batch_path = generate_batch(
-            n_dimensions_range=[2, 3, 5],
-            n_clusters_range=[3, 5],
-            n_points_range=[10, 20],
+            n_dimensions_range=[i for i in range(2, 6)],
+            n_clusters_range=[i for i in range(3, 6)],
+            n_points_range=[i for i in range(10, 18)],
             coord_range=(-1, 1),
             mode=mode,
             solver="gams",  # For initial model generation only
