@@ -277,13 +277,13 @@ if __name__ == "__main__":
 
     # Define multiple solver configurations to compare
     solver_configs: List[Dict[str, Any]] = [
-        # {"solver": "gams", "subsolver": "gurobi"},
+        {"solver": "gams", "subsolver": "gurobi"},
         # {"solver": "gams", "subsolver": "baron"},
         # {"solver": "gurobi", "subsolver": None},
         # {"solver": "gurobi", "subsolver": 'persistent'},
         # {"solver": "gams", "subsolver": "ipopth"},
         # {"solver": "gams", "subsolver": "scip"},
-        {"solver": "scip", "subsolver": None},
+        # {"solver": "scip", "subsolver": None},
     ]
 
     # Use an existing batch file or create a new one
