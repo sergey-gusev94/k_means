@@ -291,7 +291,7 @@ if __name__ == "__main__":
         os.path.dirname(os.getcwd()),
         "data",
         "batches",
-        "k_means_96.txt.txt",
+        "k_means_96.txt",
     )
 
     # batch_path = None
