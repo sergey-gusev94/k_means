@@ -291,10 +291,10 @@ if __name__ == "__main__":
         os.path.dirname(os.getcwd()),
         "data",
         "batches",
-        "kmeans_test.txt",
+        "k_means_96.txt.txt",
     )
 
-    batch_path = None
+    # batch_path = None
 
     only_generate = False
 
