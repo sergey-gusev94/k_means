@@ -282,8 +282,8 @@ if __name__ == "__main__":
         # {"solver": "gurobi", "subsolver": None},
         # {"solver": "gurobi", "subsolver": 'persistent'},
         # {"solver": "gams", "subsolver": "ipopth"},
-        {"solver": "gams", "subsolver": "scip"},
-        # {"solver": "scip", "subsolver": None},
+        # {"solver": "gams", "subsolver": "scip"},
+        {"solver": "scip", "subsolver": None},
     ]
 
     # Use an existing batch file or create a new one
