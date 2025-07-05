@@ -1,0 +1,150 @@
+Solving original (integer) problem with strategy gdp.hull_exact...
+--- Job model.gms Start 07/02/25 04:00:37 49.1.0 5c4d4ed6 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/49.1.0/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/225a/
+    SysDir /package/gams/49.1.0/
+    CurDir /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/
+    LogOption 3
+Licensee: David Bernal / SECQUOIA Research Group         G240524|0002AS-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE3427
+          /local/scratch/a/sgusev/.local/share/GAMS/gamslice.txt
+          License Admin: David E Bernal, dbernaln@purdue.edu               
+          Evaluation license: Not for commercial or production use
+          The expiration date of time-limited license is Apr 14, 2026
+System information: 48 physical cores and 995 Gb memory detected
+GAMS 49.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(3737) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/baron.opt
+--- model.gms(5481) 2 Mb
+--- Starting execution: elapsed 0:00:00.027
+--- model.gms(3739) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(3743) 6 Mb
+--- Reset Solvelink = 2
+---   1,136 rows  549 columns  2,765 non-zeroes
+---   1,820 nl-code  325 nl-non-zeroes
+---   65 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 7.800E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 7.800E+01] - Zero values observed as well
+--- model.gms(3743) 4 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.042
+
+GAMS/BARON       49.1.0 5c4d4ed6 Feb 15, 2025          LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/baron.opt"
+*** Warning Read from empty file or string
+Finished reading from "/local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/baron.opt"
+===========================================================================
+ BARON version 25.2.1. Built: LNX-64 Sat Feb 1 21:54:09 EST 2025 
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+ For NLP: MINOS, SNOPT, External NLP, IPOPT, FILTERSQP
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 12.4548
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 9.39464
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+*         1          62.05    25MB     0.00000         2.32203        0.75%
+          1+         91.23    25MB     0.798512        2.32203        9.06%
+          1+        121.10    25MB     0.798512        2.32203        9.80%
+*         1         130.73    25MB     0.798512        2.18370        9.80%
+          1         152.59    25MB     0.798512        2.18370        9.80%
+         12+        184.18    82MB     0.798512        2.18370       10.64%
+         16+        212.43    82MB     0.798512        2.18370       10.84%
+         22+        241.67    82MB     0.798512        2.18370       11.22%
+         29         271.87    82MB     0.798512        2.18370       11.90%
+*        30         301.57    82MB     0.798512        2.11341       12.12%
+         30+        332.53    82MB     0.798512        2.11341       12.14%
+         36+        362.09    82MB     0.798512        2.11341       13.05%
+         48+        391.18    82MB     0.798512        2.11341       14.01%
+         72+        421.00    82MB     0.919620        2.11341       17.73%
+         85+        450.41    82MB     0.919620        2.11341       17.96%
+         96+        481.23    82MB     1.09246         2.11341       18.73%
+        102+        511.09    82MB     1.09246         2.11341       18.76%
+        117+        540.82    82MB     1.09246         2.11341       18.91%
+        124+        570.34    82MB     1.09246         2.11341       19.12%
+        139+        610.93    82MB     1.26230         2.11341       20.26%
+        154+        640.78    82MB     1.28884         2.11341       20.56%
+        191+        668.93    82MB     1.32990         2.11341       20.87%
+        209+        695.85    82MB     1.43190         2.11341       21.55%
+        244+        728.94    82MB     1.43190         2.11341       21.81%
+        255+        757.76    82MB     1.43190         2.11341       21.85%
+        317         787.61    84MB     1.43270         2.11341       22.74%
+        358+        817.40    84MB     1.43270         2.11341       22.85%
+        475         845.21    84MB     1.50426         2.11341       23.68%
+        500+        874.02    84MB     1.54089         2.11341       24.03%
+        531+        902.51    84MB     1.54632         2.11341       24.45%
+        550+        932.39    84MB     1.58801         2.11341       24.90%
+        567+        962.24    84MB     1.59830         2.11341       25.00%
+        615+       1001.80    84MB     1.59830         2.11341       25.08%
+        655+       1031.38    84MB     1.60668         2.11341       26.34%
+        744+       1061.17    84MB     1.71354         2.11341       27.93%
+        759+       1091.00    84MB     1.77649         2.11341       28.96%
+        777+       1120.80    84MB     1.77649         2.11341       29.09%
+        821+       1150.61    84MB     1.79897         2.11341       29.65%
+        865+       1179.51    84MB     1.87018         2.11341       29.66%
+        955+       1206.59    84MB     1.88850         2.11341       29.78%
+       1023+       1234.32    84MB     1.89069         2.11341       30.07%
+       1030+       1261.55    84MB     1.94037         2.11341       60.50%
+       1080+       1289.19    84MB     1.94037         2.11341       60.50%
+       1185+       1316.91    84MB     1.96973         2.11341       61.37%
+       1194+       1346.07    84MB     2.07045         2.11341       66.83%
+       1199        1362.19    84MB     2.11341         2.11341      100.00%
+
+                         *** Normal completion ***            
+
+ Wall clock time:                  1413.05
+ Total CPU time used:              1362.19
+
+ Total no. of BaR iterations:    1199
+ Best solution found at node:     681
+ Max. no. of nodes in memory:      32
+ 
+ All done
+===========================================================================
+
+Solution      = 2.11340963703439  found at node 681
+Best possible = 2.11340963703439
+Absolute gap  = 0  optca = 1E-9
+Relative gap  = 0  optcr = 1E-6
+
+--- Reading solution for model GAMS_MODEL
+***
+*** Solver did not provide marginals for model GAMS_MODEL
+***
+--- Executing after solve: elapsed 0:23:33.321
+--- model.gms(3746) 4 Mb
+--- model.gms(5481) 6 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 07/02/25 04:24:10 elapsed 0:23:33.326
+
+GAMS WORKING DIRECTORY: /local/scratch/a/sgusev/repos/k_means_baron/k_means/data/gams_baron_gdp.hull_exact/no_mode/2025-07-02_04-00-37/original
+
+Original problem solved. Time taken: 1413.6719636917114 seconds
+Original objective value: 2.113409637034387
