@@ -1,0 +1,253 @@
+Solving original (integer) problem with strategy gdp.hull...
+--- Job model.gms Start 07/03/25 22:45:09 49.1.0 5c4d4ed6 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/49.1.0/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/225a/
+    SysDir /package/gams/49.1.0/
+    CurDir /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/
+    LogOption 3
+Licensee: David Bernal / SECQUOIA Research Group         G240524|0002AS-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE3427
+          /local/scratch/a/sgusev/.local/share/GAMS/gamslice.txt
+          License Admin: David E Bernal, dbernaln@purdue.edu               
+          Evaluation license: Not for commercial or production use
+          The expiration date of time-limited license is Apr 14, 2026
+System information: 48 physical cores and 995 Gb memory detected
+GAMS 49.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(2653) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/gurobi.opt
+--- model.gms(3926) 2 Mb
+--- Starting execution: elapsed 0:00:00.011
+--- model.gms(2656) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(2660) 5 Mb
+---   804 rows  409 columns  1,959 non-zeroes
+---   1,984 nl-code  256 nl-non-zeroes
+---   64 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.410E-05, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 6.400E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.211E-02, 6.400E+01]
+--- model.gms(2660) 3 Mb
+--- Executing GUROBI (Solvelink=5): elapsed 0:00:00.018
+
+Gurobi           49.1.0 5c4d4ed6 Feb 15, 2025          LEG x86 64bit/Linux    
+
+Gurobi library version 12.0.1
+GRB_LICENSE_FILE = /local/scratch/a/sgusev/gurobi.lic
+GAMS/Gurobi Link license.
+Set parameter OutputFlag to value 1
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/gurobi.opt"
+>>  NonConvex 2
+Finished reading from "/local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/gurobi.opt"
+Set parameter TimeLimit to value 1800
+Set parameter MIPGap to value 1e-06
+Set parameter MIPGapAbs to value 0
+Set parameter NonConvex to value 2
+Set parameter Threads to value 1
+--- GMO Q Extraction (ThreePass): 0.00s
+--- GMO setup time: 0.00
+Space for names approximately 0.07 Mb
+Use option 'names no' to turn use of names off
+Set parameter OutputFlag to value 1
+Starting Gurobi...
+Gurobi Optimizer version 12.0.1 build v12.0.1rc0 (linux64 - "Oracle Linux Server 9.6")
+
+CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+
+Non-default parameters:
+TimeLimit  1800
+MIPGap  1e-06
+MIPGapAbs  0
+NonConvex  2
+Threads  1
+
+Academic license 2640711 - for non-commercial use only - registered to sg___@purdue.edu
+Optimize a model with 803 rows, 472 columns and 1750 nonzeros
+Model fingerprint: 0x7551a54b
+Model has 64 general nonlinear constraints (384 nonlinear terms)
+Variable types: 408 continuous, 64 integer (64 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+01]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 6e+01]
+  RHS range        [1e-05, 1e+00]
+Presolve model has 64 nlconstr
+Added 640 variables to disaggregate expressions.
+Presolve removed 192 rows and 144 columns
+Presolve time: 0.01s
+Presolved: 2339 rows, 969 columns, 6086 nonzeros
+Presolved model has 384 bilinear constraint(s)
+
+Solving non-convex MIQCP
+
+Variable types: 905 continuous, 64 integer (64 binary)
+Found heuristic solution: objective 9.7260101
+
+Root relaxation: objective 0.000000e+00, 371 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0  192    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0  192    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0  221    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0   81    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0   79    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0   64    9.72601    0.00000   100%     -    0s
+     0     0    0.00000    0   64    9.72601    0.00000   100%     -    0s
+H    0     0                       6.6829943    0.00000   100%     -    0s
+H    0     0                       5.1466635    0.00000   100%     -    0s
+     0     2    0.00000    0   64    5.14666    0.00000   100%     -    0s
+H   86    84                       3.0643402    0.00000   100%   8.4    0s
+H  559   456                       3.0641561    0.00000   100%   9.2    1s
+H  559   434                       3.0641367    0.00000   100%   9.2    1s
+H  560   412                       2.1047633    0.00000   100%   9.2    1s
+H  560   391                       2.0531101    0.00000   100%   9.2    1s
+H  570   378                       1.7638057    0.00000   100%   9.0    1s
+H  831   470                       1.7168892    0.00000   100%  18.4    2s
+H  857   458                       1.6925704    0.00000   100%  18.8    2s
+H  857   440                       1.6878806    0.00000   100%  18.8    2s
+H  857   424                       1.6834978    0.00000   100%  18.8    2s
+H 1256   493                       1.5851401    0.00000   100%  17.8    3s
+H 1256   478                       1.5699913    0.00000   100%  17.8    3s
+H 1256   464                       1.5697604    0.00000   100%  17.8    3s
+H 1256   451                       1.5691252    0.00000   100%  17.8    3s
+H 1256   438                       1.5657436    0.00000   100%  17.8    3s
+H 1256   428                       1.5613460    0.00000   100%  17.8    3s
+H 1256   428                       1.5611357    0.00000   100%  17.8    3s
+H 1256   428                       1.5607416    0.00000   100%  17.8    3s
+H 1310   454                       1.5336289    0.00000   100%  17.3    3s
+H 1310   454                       1.5301692    0.00000   100%  17.3    3s
+H 1310   452                       1.5251693    0.00000   100%  17.3    3s
+H 1313   451                       1.5251684    0.00000   100%  17.3    3s
+H 1392   505                       1.5251601    0.00000   100%  16.9    3s
+H 1392   505                       1.5251544    0.00000   100%  16.9    3s
+H 1470   547                       1.5251208    0.00000   100%  16.7    3s
+H 1577   589                       1.5250567    0.00000   100%  16.5    4s
+  2087   830    0.88856   43   63    1.52506    0.00000   100%  17.1    5s
+H 4610  1734                       1.5250559    0.00589   100%  16.0    9s
+H 4642  1751                       1.5250498    0.00603   100%  16.0    9s
+H 4642  1751                       1.5250456    0.00603   100%  16.0    9s
+H 4670  1759                       1.5153346    0.00603   100%  15.9    9s
+H 4670  1754                       1.5044982    0.00603   100%  15.9    9s
+H 4670  1754                       1.5044258    0.00603   100%  15.9    9s
+H 4670  1754                       1.5043808    0.00603   100%  15.9    9s
+H 4674  1750                       1.5030811    0.00603   100%  15.9    9s
+H 4674  1750                       1.5030550    0.00603   100%  15.9    9s
+H 4674  1749                       1.4994583    0.00603   100%  15.9    9s
+H 4700  1765                       1.4994521    0.00603   100%  15.9    9s
+H 4700  1764                       1.4970464    0.00603   100%  15.9    9s
+H 4700  1764                       1.4970232    0.00603   100%  15.9    9s
+H 4700  1764                       1.4970224    0.00603   100%  15.9    9s
+  4853  1799    0.79241   31   73    1.49702    0.00664   100%  15.7   10s
+H 5101  1869                       1.4969390    0.02154  98.6%  15.4   10s
+  7373  1998    1.05909   50   44    1.49694    0.20854  86.1%  17.2   15s
+ 11485  1575    1.18225   53   51    1.49694    0.65028  56.6%  16.3   20s
+ 15303  2207     cutoff   43         1.49694    0.82130  45.1%  15.0   26s
+ 19436  3126    1.48441   59   13    1.49694    0.93000  37.9%  14.0   30s
+ 25009  3896     cutoff   68         1.49694    1.03694  30.7%  13.0   35s
+ 30807  4447    1.42477   63   34    1.49694    1.10287  26.3%  12.2   40s
+ 36727  4902    1.40994   66   20    1.49694    1.15792  22.6%  11.5   45s
+ 42755  5421    1.39447   77   29    1.49694    1.19729  20.0%  10.8   50s
+ 49410  5728     cutoff   65         1.49694    1.22901  17.9%  10.0   55s
+ 55970  6164    1.36971   66   21    1.49694    1.25736  16.0%   9.3   60s
+ 62756  6115     cutoff   74         1.49694    1.28599  14.1%   8.8   65s
+ 69690  6127     cutoff   85         1.49694    1.30790  12.6%   8.3   70s
+ 76504  5825    1.39582   71   32    1.49694    1.33098  11.1%   7.9   75s
+ 83092  4741    1.46979   78   18    1.49694    1.36150  9.05%   7.6   80s
+ 90348  4314     cutoff   85         1.49694    1.39408  6.87%   7.2   85s
+ 97067  3712    1.44357   84   17    1.49694    1.40753  5.97%   7.0   90s
+ 103476  3044    1.47269   88   16    1.49694    1.43232  4.32%   6.8   95s
+*105417  3371             124       1.4969301    1.43343  4.24%   6.7   96s
+ 109627  3409     cutoff   98         1.49693    1.44419  3.52%   6.6  100s
+ 116643  3387    1.49135   84   18    1.49693    1.45486  2.81%   6.4  105s
+ 123650  3649    1.49328   92   10    1.49693    1.45901  2.53%   6.2  110s
+ 130411  3520    1.46752   94   15    1.49693    1.46121  2.39%   6.0  115s
+ 136872  2683    1.47106   85    7    1.49693    1.46999  1.80%   5.9  120s
+ 143745  1898     cutoff  106         1.49693    1.48922  0.52%   5.8  125s
+ 150556  1643    1.49654   95   17    1.49693    1.49471  0.15%   5.6  130s
+ 157425  1584    1.49646  100   23    1.49693    1.49630  0.04%   5.5  135s
+ 164243   910     cutoff  109         1.49693    1.49673  0.01%   5.4  140s
+
+Cutting planes:
+  Learned: 68
+  Gomory: 7
+  Implied bound: 26
+  Projected implied bound: 2
+  MIR: 9
+  Flow cover: 114
+  RLT: 21
+  Relax-and-lift: 23
+
+Explored 169520 nodes (895947 simplex iterations) in 143.76 seconds (89.42 work units)
+Thread count was 1 (of 96 available processors)
+
+Solution count 10: 1.49693 1.49694 1.49702 ... 1.50438
+
+Optimal solution found (tolerance 1.00e-06)
+Warning: max constraint violation (1.4081e-06) exceeds tolerance
+Warning: max general constraint violation (1.4081e-06) exceeds tolerance
+Best objective 1.496930080813e+00, best bound 1.496928658273e+00, gap 0.0001%
+
+User-callback calls 381252, time in user-callback 0.49 sec
+MIP status(2): Model was solved to optimality (subject to tolerances).
+
+Solving fixed MIP.
+Gurobi Optimizer version 12.0.1 build v12.0.1rc0 (linux64 - "Oracle Linux Server 9.6")
+
+CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+
+Non-default parameters:
+TimeLimit  1800
+MIPGap  1e-06
+MIPGapAbs  0
+NonConvex  2
+Threads  1
+
+Academic license 2640711 - for non-commercial use only - registered to sg___@purdue.edu
+Optimize a model with 803 rows, 472 columns and 1750 nonzeros
+Model fingerprint: 0x3935d8c4
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+01]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e-05, 6e+01]
+  RHS range        [1e-05, 1e+00]
+Presolve removed 803 rows and 472 columns
+Presolve time: 0.02s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4969301e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.02 seconds (0.00 work units)
+Optimal objective  1.496930081e+00
+
+User-callback calls 40, time in user-callback 0.00 sec
+Fixed MIP status(2): Model was solved to optimality (subject to tolerances).
+
+MIP   Solution:          1.496930    (895947 iterations, 169520 nodes)
+Final Solve:             1.496930    (0 iterations)
+
+Best possible:           1.496929
+Absolute gap:            0.000001
+Relative gap:            0.000001
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:02:23.817
+--- model.gms(2663) 3 Mb
+--- model.gms(3926) 5 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 07/03/25 22:47:32 elapsed 0:02:23.821
+
+GAMS WORKING DIRECTORY: /local/scratch/a/sgusev/repos/k_means_gurobi/k_means/data/gams_gurobi_gdp.hull/no_mode/2025-07-03_22-45-08/original
+
+Original problem solved. Time taken: 144.0940990447998 seconds
+Original objective value: 1.49693008081529
