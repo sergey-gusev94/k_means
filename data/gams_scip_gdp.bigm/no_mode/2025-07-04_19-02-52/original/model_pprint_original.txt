@@ -1,0 +1,2458 @@
+3 Set Declarations
+    clusters : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    5 : {1, 2, 3, 4, 5}
+    dimensions : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    2 : {1, 2}
+    points : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :   14 : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+
+6 Param Declarations
+    coord_range_lower : Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :    -1
+    coord_range_upper : Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :     1
+    n_clusters : Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :     5
+    n_dimensions : Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :     2
+    n_points : Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :    14
+    points_coordinates : Size=28, Index=points*dimensions, Domain=Any, Default=None, Mutable=False
+        Key     : Value
+         (1, 1) : -0.30542052956899113
+         (1, 2) :  -0.3528026035461338
+         (2, 1) : -0.12633533579729672
+         (2, 2) :   0.2875779022968239
+         (3, 1) :  -0.5847392935581466
+         (3, 2) :  -0.8440164802409358
+         (4, 1) :  -0.5036057920820878
+         (4, 2) :  0.27863994120416646
+         (5, 1) :   0.2169911149713868
+         (5, 2) :  0.03157186628546649
+         (6, 1) :   0.6511239551901777
+         (6, 2) :  0.44375112108060266
+         (7, 1) :  0.07346332874568584
+         (7, 2) :  -0.7531142350197326
+         (8, 1) :   0.7098444333644678
+         (8, 2) :  -0.8740086113307153
+         (9, 1) :  0.09487142009171734
+         (9, 2) :  -0.7666489925347715
+        (10, 1) :  -0.9375344063585616
+        (10, 2) :  0.41173652111798664
+        (11, 1) :  0.09299565819481903
+        (11, 2) :   0.8928010721062851
+        (12, 1) :  -0.3711461223530439
+        (12, 2) :    0.532448527961805
+        (13, 1) :  -0.9492018082149409
+        (13, 2) :  0.31144064376213465
+        (14, 1) :  -0.8197226304086573
+        (14, 2) :   0.6433506624818937
+
+2 Var Declarations
+    center_coordinates : Size=10, Index=clusters*dimensions
+        Key    : Lower : Value              : Upper : Fixed : Stale : Domain
+        (1, 1) :    -1 : -0.802840502430992 :     1 : False : False :  Reals
+        (1, 2) :    -1 :  0.412045370810031 :     1 : False : False :  Reals
+        (2, 1) :    -1 : -0.445156923115906 :     1 : False : False :  Reals
+        (2, 2) :    -1 : -0.598251231025767 :     1 : False : False :  Reals
+        (3, 1) :    -1 :    -0.135498046875 :     1 : False : False :  Reals
+        (3, 2) :    -1 :   0.57056918035197 :     1 : False : False :  Reals
+        (4, 1) :    -1 :  0.292453795257952 :     1 : False : False :  Reals
+        (4, 2) :    -1 : -0.797611063691492 :     1 : False : False :  Reals
+        (5, 1) :    -1 :   0.43390340030615 :     1 : False : False :  Reals
+        (5, 2) :    -1 :  0.237090067916546 :     1 : False : False :  Reals
+    distance : Size=14, Index=points
+        Key : Lower : Value             : Upper : Fixed : Stale : Domain
+          1 :     0 : 0.079770304187023 :    56 : False : False : NonNegativeReals
+          2 :     0 : 0.080167354458695 :    56 : False : False : NonNegativeReals
+          3 :     0 : 0.079882811633959 :    56 : False : False : NonNegativeReals
+          4 :     0 : 0.107337471955233 :    56 : False : False : NonNegativeReals
+          5 :     0 : 0.089287797163523 :    56 : False : False : NonNegativeReals
+          6 :     0 : 0.089892686791703 :    56 : False : False : NonNegativeReals
+          7 :     0 : 0.049935935863888 :    56 : False : False : NonNegativeReals
+          8 :     0 : 0.180050673743035 :    56 : False : False : NonNegativeReals
+          9 :     0 : 0.039996588505428 :    56 : False : False : NonNegativeReals
+         10 :     0 : 0.018141594572697 :    56 : False : False : NonNegativeReals
+         11 :     0 : 0.156042101049214 :    56 : False : False : NonNegativeReals
+         12 :     0 : 0.056982535344273 :    56 : False : False : NonNegativeReals
+         13 :     0 : 0.031541994364479 :    56 : False : False : NonNegativeReals
+         14 :     0 : 0.053786195629775 :    56 : False : False : NonNegativeReals
+
+1 Objective Declarations
+    obj : Size=1, Index=None, Active=True
+        Key  : Active : Sense    : Expression
+        None :   True : minimize : distance[1] + distance[2] + distance[3] + distance[4] + distance[5] + distance[6] + distance[7] + distance[8] + distance[9] + distance[10] + distance[11] + distance[12] + distance[13] + distance[14]
+
+1 Constraint Declarations
+    symmetry_breaking : Size=4, Index=clusters, Active=True
+        Key : Lower : Body                                              : Upper : Active
+          2 :  -Inf : center_coordinates[1,1] - center_coordinates[2,1] :   0.0 :   True
+          3 :  -Inf : center_coordinates[2,1] - center_coordinates[3,1] :   0.0 :   True
+          4 :  -Inf : center_coordinates[3,1] - center_coordinates[4,1] :   0.0 :   True
+          5 :  -Inf : center_coordinates[4,1] - center_coordinates[5,1] :   0.0 :   True
+
+1 Block Declarations
+    _pyomo_gdp_bigm_reformulation : Size=1, Index=None, Active=True
+        1 Constraint Declarations
+            assignment_xor : Size=14, Index=Any, Active=True
+                Key : Lower : Body                                                                                                                                                                                                                           : Upper : Active
+                  1 :   1.0 :      disjunct_blocks[1,1].binary_indicator_var + disjunct_blocks[2,1].binary_indicator_var + disjunct_blocks[3,1].binary_indicator_var + disjunct_blocks[4,1].binary_indicator_var + disjunct_blocks[5,1].binary_indicator_var :   1.0 :   True
+                  2 :   1.0 :      disjunct_blocks[1,2].binary_indicator_var + disjunct_blocks[2,2].binary_indicator_var + disjunct_blocks[3,2].binary_indicator_var + disjunct_blocks[4,2].binary_indicator_var + disjunct_blocks[5,2].binary_indicator_var :   1.0 :   True
+                  3 :   1.0 :      disjunct_blocks[1,3].binary_indicator_var + disjunct_blocks[2,3].binary_indicator_var + disjunct_blocks[3,3].binary_indicator_var + disjunct_blocks[4,3].binary_indicator_var + disjunct_blocks[5,3].binary_indicator_var :   1.0 :   True
+                  4 :   1.0 :      disjunct_blocks[1,4].binary_indicator_var + disjunct_blocks[2,4].binary_indicator_var + disjunct_blocks[3,4].binary_indicator_var + disjunct_blocks[4,4].binary_indicator_var + disjunct_blocks[5,4].binary_indicator_var :   1.0 :   True
+                  5 :   1.0 :      disjunct_blocks[1,5].binary_indicator_var + disjunct_blocks[2,5].binary_indicator_var + disjunct_blocks[3,5].binary_indicator_var + disjunct_blocks[4,5].binary_indicator_var + disjunct_blocks[5,5].binary_indicator_var :   1.0 :   True
+                  6 :   1.0 :      disjunct_blocks[1,6].binary_indicator_var + disjunct_blocks[2,6].binary_indicator_var + disjunct_blocks[3,6].binary_indicator_var + disjunct_blocks[4,6].binary_indicator_var + disjunct_blocks[5,6].binary_indicator_var :   1.0 :   True
+                  7 :   1.0 :      disjunct_blocks[1,7].binary_indicator_var + disjunct_blocks[2,7].binary_indicator_var + disjunct_blocks[3,7].binary_indicator_var + disjunct_blocks[4,7].binary_indicator_var + disjunct_blocks[5,7].binary_indicator_var :   1.0 :   True
+                  8 :   1.0 :      disjunct_blocks[1,8].binary_indicator_var + disjunct_blocks[2,8].binary_indicator_var + disjunct_blocks[3,8].binary_indicator_var + disjunct_blocks[4,8].binary_indicator_var + disjunct_blocks[5,8].binary_indicator_var :   1.0 :   True
+                  9 :   1.0 :      disjunct_blocks[1,9].binary_indicator_var + disjunct_blocks[2,9].binary_indicator_var + disjunct_blocks[3,9].binary_indicator_var + disjunct_blocks[4,9].binary_indicator_var + disjunct_blocks[5,9].binary_indicator_var :   1.0 :   True
+                 10 :   1.0 : disjunct_blocks[1,10].binary_indicator_var + disjunct_blocks[2,10].binary_indicator_var + disjunct_blocks[3,10].binary_indicator_var + disjunct_blocks[4,10].binary_indicator_var + disjunct_blocks[5,10].binary_indicator_var :   1.0 :   True
+                 11 :   1.0 : disjunct_blocks[1,11].binary_indicator_var + disjunct_blocks[2,11].binary_indicator_var + disjunct_blocks[3,11].binary_indicator_var + disjunct_blocks[4,11].binary_indicator_var + disjunct_blocks[5,11].binary_indicator_var :   1.0 :   True
+                 12 :   1.0 : disjunct_blocks[1,12].binary_indicator_var + disjunct_blocks[2,12].binary_indicator_var + disjunct_blocks[3,12].binary_indicator_var + disjunct_blocks[4,12].binary_indicator_var + disjunct_blocks[5,12].binary_indicator_var :   1.0 :   True
+                 13 :   1.0 : disjunct_blocks[1,13].binary_indicator_var + disjunct_blocks[2,13].binary_indicator_var + disjunct_blocks[3,13].binary_indicator_var + disjunct_blocks[4,13].binary_indicator_var + disjunct_blocks[5,13].binary_indicator_var :   1.0 :   True
+                 14 :   1.0 : disjunct_blocks[1,14].binary_indicator_var + disjunct_blocks[2,14].binary_indicator_var + disjunct_blocks[3,14].binary_indicator_var + disjunct_blocks[4,14].binary_indicator_var + disjunct_blocks[5,14].binary_indicator_var :   1.0 :   True
+
+        1 Block Declarations
+            relaxedDisjuncts : Size=70, Index=NonNegativeIntegers, Active=True
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[0] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.30542052956899113 - center_coordinates[1,1])**2 + (-0.3528026035461338 - center_coordinates[1,2])**2 - distance[1] - 3.5341976431813835*(1 - disjunct_blocks[1,1].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,1].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[1] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.30542052956899113 - center_coordinates[2,1])**2 + (-0.3528026035461338 - center_coordinates[2,2])**2 - distance[1] - 3.5341976431813835*(1 - disjunct_blocks[2,1].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,1].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[2] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.30542052956899113 - center_coordinates[3,1])**2 + (-0.3528026035461338 - center_coordinates[3,2])**2 - distance[1] - 3.5341976431813835*(1 - disjunct_blocks[3,1].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,1].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[3] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.30542052956899113 - center_coordinates[4,1])**2 + (-0.3528026035461338 - center_coordinates[4,2])**2 - distance[1] - 3.5341976431813835*(1 - disjunct_blocks[4,1].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,1].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[4] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.30542052956899113 - center_coordinates[5,1])**2 + (-0.3528026035461338 - center_coordinates[5,2])**2 - distance[1] - 3.5341976431813835*(1 - disjunct_blocks[5,1].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,1].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[5] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.12633533579729672 - center_coordinates[1,1])**2 + (0.2875779022968239 - center_coordinates[1,2])**2 - distance[2] - 2.9264881431486987*(1 - disjunct_blocks[1,2].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,2].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[6] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.12633533579729672 - center_coordinates[2,1])**2 + (0.2875779022968239 - center_coordinates[2,2])**2 - distance[2] - 2.9264881431486987*(1 - disjunct_blocks[2,2].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,2].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[7] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.12633533579729672 - center_coordinates[3,1])**2 + (0.2875779022968239 - center_coordinates[3,2])**2 - distance[2] - 2.9264881431486987*(1 - disjunct_blocks[3,2].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,2].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[8] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.12633533579729672 - center_coordinates[4,1])**2 + (0.2875779022968239 - center_coordinates[4,2])**2 - distance[2] - 2.9264881431486987*(1 - disjunct_blocks[4,2].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,2].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[9] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.12633533579729672 - center_coordinates[5,1])**2 + (0.2875779022968239 - center_coordinates[5,2])**2 - distance[2] - 2.9264881431486987*(1 - disjunct_blocks[5,2].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,2].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[10] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5847392935581466 - center_coordinates[1,1])**2 + (-0.8440164802409358 - center_coordinates[1,2])**2 - distance[3] - 5.911795407947343*(1 - disjunct_blocks[1,3].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,3].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[11] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5847392935581466 - center_coordinates[2,1])**2 + (-0.8440164802409358 - center_coordinates[2,2])**2 - distance[3] - 5.911795407947343*(1 - disjunct_blocks[2,3].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,3].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[12] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5847392935581466 - center_coordinates[3,1])**2 + (-0.8440164802409358 - center_coordinates[3,2])**2 - distance[3] - 5.911795407947343*(1 - disjunct_blocks[3,3].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,3].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[13] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5847392935581466 - center_coordinates[4,1])**2 + (-0.8440164802409358 - center_coordinates[4,2])**2 - distance[3] - 5.911795407947343*(1 - disjunct_blocks[4,3].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,3].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[14] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5847392935581466 - center_coordinates[5,1])**2 + (-0.8440164802409358 - center_coordinates[5,2])**2 - distance[3] - 5.911795407947343*(1 - disjunct_blocks[5,3].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,3].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[15] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5036057920820878 - center_coordinates[1,1])**2 + (0.27863994120416646 - center_coordinates[1,2])**2 - distance[4] - 3.895750477225397*(1 - disjunct_blocks[1,4].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,4].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[16] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5036057920820878 - center_coordinates[2,1])**2 + (0.27863994120416646 - center_coordinates[2,2])**2 - distance[4] - 3.895750477225397*(1 - disjunct_blocks[2,4].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,4].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[17] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5036057920820878 - center_coordinates[3,1])**2 + (0.27863994120416646 - center_coordinates[3,2])**2 - distance[4] - 3.895750477225397*(1 - disjunct_blocks[3,4].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,4].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[18] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5036057920820878 - center_coordinates[4,1])**2 + (0.27863994120416646 - center_coordinates[4,2])**2 - distance[4] - 3.895750477225397*(1 - disjunct_blocks[4,4].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,4].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[19] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.5036057920820878 - center_coordinates[5,1])**2 + (0.27863994120416646 - center_coordinates[5,2])**2 - distance[4] - 3.895750477225397*(1 - disjunct_blocks[5,4].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,4].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[20] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.2169911149713868 - center_coordinates[1,1])**2 + (0.03157186628546649 - center_coordinates[1,2])**2 - distance[5] - 2.5452078892309795*(1 - disjunct_blocks[1,5].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,5].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[21] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.2169911149713868 - center_coordinates[2,1])**2 + (0.03157186628546649 - center_coordinates[2,2])**2 - distance[5] - 2.5452078892309795*(1 - disjunct_blocks[2,5].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,5].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[22] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.2169911149713868 - center_coordinates[3,1])**2 + (0.03157186628546649 - center_coordinates[3,2])**2 - distance[5] - 2.5452078892309795*(1 - disjunct_blocks[3,5].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,5].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[23] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.2169911149713868 - center_coordinates[4,1])**2 + (0.03157186628546649 - center_coordinates[4,2])**2 - distance[5] - 2.5452078892309795*(1 - disjunct_blocks[4,5].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,5].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[24] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.2169911149713868 - center_coordinates[5,1])**2 + (0.03157186628546649 - center_coordinates[5,2])**2 - distance[5] - 2.5452078892309795*(1 - disjunct_blocks[5,5].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,5].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[25] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.6511239551901777 - center_coordinates[1,1])**2 + (0.44375112108060266 - center_coordinates[1,2])**2 - distance[6] - 4.810627615024353*(1 - disjunct_blocks[1,6].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,6].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[26] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.6511239551901777 - center_coordinates[2,1])**2 + (0.44375112108060266 - center_coordinates[2,2])**2 - distance[6] - 4.810627615024353*(1 - disjunct_blocks[2,6].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,6].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[27] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.6511239551901777 - center_coordinates[3,1])**2 + (0.44375112108060266 - center_coordinates[3,2])**2 - distance[6] - 4.810627615024353*(1 - disjunct_blocks[3,6].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,6].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[28] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.6511239551901777 - center_coordinates[4,1])**2 + (0.44375112108060266 - center_coordinates[4,2])**2 - distance[6] - 4.810627615024353*(1 - disjunct_blocks[4,6].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,6].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[29] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.6511239551901777 - center_coordinates[5,1])**2 + (0.44375112108060266 - center_coordinates[5,2])**2 - distance[6] - 4.810627615024353*(1 - disjunct_blocks[5,6].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,6].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[30] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.07346332874568584 - center_coordinates[1,1])**2 + (-0.7531142350197326 - center_coordinates[1,2])**2 - distance[7] - 4.22573303919059*(1 - disjunct_blocks[1,7].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,7].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[31] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.07346332874568584 - center_coordinates[2,1])**2 + (-0.7531142350197326 - center_coordinates[2,2])**2 - distance[7] - 4.22573303919059*(1 - disjunct_blocks[2,7].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,7].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[32] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.07346332874568584 - center_coordinates[3,1])**2 + (-0.7531142350197326 - center_coordinates[3,2])**2 - distance[7] - 4.22573303919059*(1 - disjunct_blocks[3,7].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,7].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[33] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.07346332874568584 - center_coordinates[4,1])**2 + (-0.7531142350197326 - center_coordinates[4,2])**2 - distance[7] - 4.22573303919059*(1 - disjunct_blocks[4,7].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,7].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[34] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.07346332874568584 - center_coordinates[5,1])**2 + (-0.7531142350197326 - center_coordinates[5,2])**2 - distance[7] - 4.22573303919059*(1 - disjunct_blocks[5,7].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,7].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[35] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.7098444333644678 - center_coordinates[1,1])**2 + (-0.8740086113307153 - center_coordinates[1,2])**2 - distance[8] - 6.435476261649134*(1 - disjunct_blocks[1,8].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,8].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[36] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.7098444333644678 - center_coordinates[2,1])**2 + (-0.8740086113307153 - center_coordinates[2,2])**2 - distance[8] - 6.435476261649134*(1 - disjunct_blocks[2,8].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,8].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[37] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.7098444333644678 - center_coordinates[3,1])**2 + (-0.8740086113307153 - center_coordinates[3,2])**2 - distance[8] - 6.435476261649134*(1 - disjunct_blocks[3,8].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,8].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[38] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.7098444333644678 - center_coordinates[4,1])**2 + (-0.8740086113307153 - center_coordinates[4,2])**2 - distance[8] - 6.435476261649134*(1 - disjunct_blocks[4,8].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,8].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[39] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                     : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.7098444333644678 - center_coordinates[5,1])**2 + (-0.8740086113307153 - center_coordinates[5,2])**2 - distance[8] - 6.435476261649134*(1 - disjunct_blocks[5,8].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,8].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[40] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09487142009171734 - center_coordinates[1,1])**2 + (-0.7666489925347715 - center_coordinates[1,2])**2 - distance[9] - 4.319792089357777*(1 - disjunct_blocks[1,9].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,9].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[41] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09487142009171734 - center_coordinates[2,1])**2 + (-0.7666489925347715 - center_coordinates[2,2])**2 - distance[9] - 4.319792089357777*(1 - disjunct_blocks[2,9].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,9].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[42] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09487142009171734 - center_coordinates[3,1])**2 + (-0.7666489925347715 - center_coordinates[3,2])**2 - distance[9] - 4.319792089357777*(1 - disjunct_blocks[3,9].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,9].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[43] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09487142009171734 - center_coordinates[4,1])**2 + (-0.7666489925347715 - center_coordinates[4,2])**2 - distance[9] - 4.319792089357777*(1 - disjunct_blocks[4,9].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,9].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[44] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09487142009171734 - center_coordinates[5,1])**2 + (-0.7666489925347715 - center_coordinates[5,2])**2 - distance[9] - 4.319792089357777*(1 - disjunct_blocks[5,9].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,9].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[45] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9375344063585616 - center_coordinates[1,1])**2 + (0.41173652111798664 - center_coordinates[1,2])**2 - distance[10] - 5.747039580881539*(1 - disjunct_blocks[1,10].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,10].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[46] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9375344063585616 - center_coordinates[2,1])**2 + (0.41173652111798664 - center_coordinates[2,2])**2 - distance[10] - 5.747039580881539*(1 - disjunct_blocks[2,10].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,10].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[47] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9375344063585616 - center_coordinates[3,1])**2 + (0.41173652111798664 - center_coordinates[3,2])**2 - distance[10] - 5.747039580881539*(1 - disjunct_blocks[3,10].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,10].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[48] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9375344063585616 - center_coordinates[4,1])**2 + (0.41173652111798664 - center_coordinates[4,2])**2 - distance[10] - 5.747039580881539*(1 - disjunct_blocks[4,10].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,10].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[49] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9375344063585616 - center_coordinates[5,1])**2 + (0.41173652111798664 - center_coordinates[5,2])**2 - distance[10] - 5.747039580881539*(1 - disjunct_blocks[5,10].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,10].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[50] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09299565819481903 - center_coordinates[1,1])**2 + (0.8928010721062851 - center_coordinates[1,2])**2 - distance[11] - 4.777335407399429*(1 - disjunct_blocks[1,11].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,11].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[51] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09299565819481903 - center_coordinates[2,1])**2 + (0.8928010721062851 - center_coordinates[2,2])**2 - distance[11] - 4.777335407399429*(1 - disjunct_blocks[2,11].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,11].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[52] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09299565819481903 - center_coordinates[3,1])**2 + (0.8928010721062851 - center_coordinates[3,2])**2 - distance[11] - 4.777335407399429*(1 - disjunct_blocks[3,11].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,11].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[53] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09299565819481903 - center_coordinates[4,1])**2 + (0.8928010721062851 - center_coordinates[4,2])**2 - distance[11] - 4.777335407399429*(1 - disjunct_blocks[4,11].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,11].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[54] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (0.09299565819481903 - center_coordinates[5,1])**2 + (0.8928010721062851 - center_coordinates[5,2])**2 - distance[11] - 4.777335407399429*(1 - disjunct_blocks[5,11].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,11].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[55] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.3711461223530439 - center_coordinates[1,1])**2 + (0.532448527961805 - center_coordinates[1,2])**2 - distance[12] - 4.228440179696092*(1 - disjunct_blocks[1,12].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,12].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[56] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.3711461223530439 - center_coordinates[2,1])**2 + (0.532448527961805 - center_coordinates[2,2])**2 - distance[12] - 4.228440179696092*(1 - disjunct_blocks[2,12].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,12].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[57] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.3711461223530439 - center_coordinates[3,1])**2 + (0.532448527961805 - center_coordinates[3,2])**2 - distance[12] - 4.228440179696092*(1 - disjunct_blocks[3,12].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,12].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[58] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.3711461223530439 - center_coordinates[4,1])**2 + (0.532448527961805 - center_coordinates[4,2])**2 - distance[12] - 4.228440179696092*(1 - disjunct_blocks[4,12].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,12].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[59] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                      : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.3711461223530439 - center_coordinates[5,1])**2 + (0.532448527961805 - center_coordinates[5,2])**2 - distance[12] - 4.228440179696092*(1 - disjunct_blocks[5,12].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,12].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[60] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9492018082149409 - center_coordinates[1,1])**2 + (0.31144064376213465 - center_coordinates[1,2])**2 - distance[13] - 5.519264251259638*(1 - disjunct_blocks[1,13].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,13].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[61] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9492018082149409 - center_coordinates[2,1])**2 + (0.31144064376213465 - center_coordinates[2,2])**2 - distance[13] - 5.519264251259638*(1 - disjunct_blocks[2,13].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,13].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[62] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9492018082149409 - center_coordinates[3,1])**2 + (0.31144064376213465 - center_coordinates[3,2])**2 - distance[13] - 5.519264251259638*(1 - disjunct_blocks[3,13].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,13].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[63] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9492018082149409 - center_coordinates[4,1])**2 + (0.31144064376213465 - center_coordinates[4,2])**2 - distance[13] - 5.519264251259638*(1 - disjunct_blocks[4,13].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,13].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[64] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                        : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.9492018082149409 - center_coordinates[5,1])**2 + (0.31144064376213465 - center_coordinates[5,2])**2 - distance[13] - 5.519264251259638*(1 - disjunct_blocks[5,13].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,13].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[65] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.8197226304086573 - center_coordinates[1,1])**2 + (0.6433506624818937 - center_coordinates[1,2])**2 - distance[14] - 6.011991851501081*(1 - disjunct_blocks[1,14].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[1,14].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   1.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[66] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.8197226304086573 - center_coordinates[2,1])**2 + (0.6433506624818937 - center_coordinates[2,2])**2 - distance[14] - 6.011991851501081*(1 - disjunct_blocks[2,14].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[2,14].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[67] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.8197226304086573 - center_coordinates[3,1])**2 + (0.6433506624818937 - center_coordinates[3,2])**2 - distance[14] - 6.011991851501081*(1 - disjunct_blocks[3,14].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[3,14].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[68] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.8197226304086573 - center_coordinates[4,1])**2 + (0.6433506624818937 - center_coordinates[4,2])**2 - distance[14] - 6.011991851501081*(1 - disjunct_blocks[4,14].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[4,14].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+                _pyomo_gdp_bigm_reformulation.relaxedDisjuncts[69] : Active=True
+                    1 Constraint Declarations
+                        transformedConstraints : Size=1, Index=Any, Active=True
+                            Key                    : Lower : Body                                                                                                                                                                                       : Upper : Active
+                            ('cons_0', None, 'ub') :  -Inf : (-0.8197226304086573 - center_coordinates[5,1])**2 + (0.6433506624818937 - center_coordinates[5,2])**2 - distance[14] - 6.011991851501081*(1 - disjunct_blocks[5,14].binary_indicator_var) :   0.0 :   True
+
+                    1 Block Declarations
+                        localVarReferences : Size=1, Index=None, Active=True
+                            1 Var Declarations
+                                binary_indicator_var : Size=1, Index=UnindexedComponent_ReferenceSet, ReferenceTo=disjunct_blocks[5,14].binary_indicator_var
+                                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                                    None :     0 :   0.0 :     1 : False : False : Binary
+
+                            1 Declarations: binary_indicator_var
+
+                    2 Declarations: transformedConstraints localVarReferences
+
+        2 Declarations: relaxedDisjuncts assignment_xor
+
+1 Disjunct Declarations
+    disjunct_blocks : Size=70, Index=clusters*points, Active=False
+        disjunct_blocks[1,1] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.30542052956899113 - center_coordinates[1,1])**2 + (-0.3528026035461338 - center_coordinates[1,2])**2 - distance[1] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,2] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.12633533579729672 - center_coordinates[1,1])**2 + (0.2875779022968239 - center_coordinates[1,2])**2 - distance[2] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,3] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5847392935581466 - center_coordinates[1,1])**2 + (-0.8440164802409358 - center_coordinates[1,2])**2 - distance[3] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,4] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5036057920820878 - center_coordinates[1,1])**2 + (0.27863994120416646 - center_coordinates[1,2])**2 - distance[4] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,5] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.2169911149713868 - center_coordinates[1,1])**2 + (0.03157186628546649 - center_coordinates[1,2])**2 - distance[5] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,6] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.6511239551901777 - center_coordinates[1,1])**2 + (0.44375112108060266 - center_coordinates[1,2])**2 - distance[6] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,7] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.07346332874568584 - center_coordinates[1,1])**2 + (-0.7531142350197326 - center_coordinates[1,2])**2 - distance[7] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,8] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.7098444333644678 - center_coordinates[1,1])**2 + (-0.8740086113307153 - center_coordinates[1,2])**2 - distance[8] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,9] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09487142009171734 - center_coordinates[1,1])**2 + (-0.7666489925347715 - center_coordinates[1,2])**2 - distance[9] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,10] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9375344063585616 - center_coordinates[1,1])**2 + (0.41173652111798664 - center_coordinates[1,2])**2 - distance[10] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,11] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09299565819481903 - center_coordinates[1,1])**2 + (0.8928010721062851 - center_coordinates[1,2])**2 - distance[11] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,12] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (-0.3711461223530439 - center_coordinates[1,1])**2 + (0.532448527961805 - center_coordinates[1,2])**2 - distance[12] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,13] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9492018082149409 - center_coordinates[1,1])**2 + (0.31144064376213465 - center_coordinates[1,2])**2 - distance[13] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[1,14] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.8197226304086573 - center_coordinates[1,1])**2 + (0.6433506624818937 - center_coordinates[1,2])**2 - distance[14] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,1] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.30542052956899113 - center_coordinates[2,1])**2 + (-0.3528026035461338 - center_coordinates[2,2])**2 - distance[1] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,2] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.12633533579729672 - center_coordinates[2,1])**2 + (0.2875779022968239 - center_coordinates[2,2])**2 - distance[2] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,3] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5847392935581466 - center_coordinates[2,1])**2 + (-0.8440164802409358 - center_coordinates[2,2])**2 - distance[3] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,4] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5036057920820878 - center_coordinates[2,1])**2 + (0.27863994120416646 - center_coordinates[2,2])**2 - distance[4] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,5] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.2169911149713868 - center_coordinates[2,1])**2 + (0.03157186628546649 - center_coordinates[2,2])**2 - distance[5] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,6] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.6511239551901777 - center_coordinates[2,1])**2 + (0.44375112108060266 - center_coordinates[2,2])**2 - distance[6] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,7] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.07346332874568584 - center_coordinates[2,1])**2 + (-0.7531142350197326 - center_coordinates[2,2])**2 - distance[7] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,8] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.7098444333644678 - center_coordinates[2,1])**2 + (-0.8740086113307153 - center_coordinates[2,2])**2 - distance[8] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,9] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09487142009171734 - center_coordinates[2,1])**2 + (-0.7666489925347715 - center_coordinates[2,2])**2 - distance[9] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,10] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9375344063585616 - center_coordinates[2,1])**2 + (0.41173652111798664 - center_coordinates[2,2])**2 - distance[10] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,11] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09299565819481903 - center_coordinates[2,1])**2 + (0.8928010721062851 - center_coordinates[2,2])**2 - distance[11] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,12] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (-0.3711461223530439 - center_coordinates[2,1])**2 + (0.532448527961805 - center_coordinates[2,2])**2 - distance[12] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,13] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9492018082149409 - center_coordinates[2,1])**2 + (0.31144064376213465 - center_coordinates[2,2])**2 - distance[13] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[2,14] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.8197226304086573 - center_coordinates[2,1])**2 + (0.6433506624818937 - center_coordinates[2,2])**2 - distance[14] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,1] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.30542052956899113 - center_coordinates[3,1])**2 + (-0.3528026035461338 - center_coordinates[3,2])**2 - distance[1] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,2] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.12633533579729672 - center_coordinates[3,1])**2 + (0.2875779022968239 - center_coordinates[3,2])**2 - distance[2] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,3] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5847392935581466 - center_coordinates[3,1])**2 + (-0.8440164802409358 - center_coordinates[3,2])**2 - distance[3] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,4] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5036057920820878 - center_coordinates[3,1])**2 + (0.27863994120416646 - center_coordinates[3,2])**2 - distance[4] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,5] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.2169911149713868 - center_coordinates[3,1])**2 + (0.03157186628546649 - center_coordinates[3,2])**2 - distance[5] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,6] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.6511239551901777 - center_coordinates[3,1])**2 + (0.44375112108060266 - center_coordinates[3,2])**2 - distance[6] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,7] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.07346332874568584 - center_coordinates[3,1])**2 + (-0.7531142350197326 - center_coordinates[3,2])**2 - distance[7] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,8] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.7098444333644678 - center_coordinates[3,1])**2 + (-0.8740086113307153 - center_coordinates[3,2])**2 - distance[8] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,9] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09487142009171734 - center_coordinates[3,1])**2 + (-0.7666489925347715 - center_coordinates[3,2])**2 - distance[9] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,10] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9375344063585616 - center_coordinates[3,1])**2 + (0.41173652111798664 - center_coordinates[3,2])**2 - distance[10] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,11] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09299565819481903 - center_coordinates[3,1])**2 + (0.8928010721062851 - center_coordinates[3,2])**2 - distance[11] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,12] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (-0.3711461223530439 - center_coordinates[3,1])**2 + (0.532448527961805 - center_coordinates[3,2])**2 - distance[12] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,13] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9492018082149409 - center_coordinates[3,1])**2 + (0.31144064376213465 - center_coordinates[3,2])**2 - distance[13] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[3,14] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.8197226304086573 - center_coordinates[3,1])**2 + (0.6433506624818937 - center_coordinates[3,2])**2 - distance[14] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,1] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.30542052956899113 - center_coordinates[4,1])**2 + (-0.3528026035461338 - center_coordinates[4,2])**2 - distance[1] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,2] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.12633533579729672 - center_coordinates[4,1])**2 + (0.2875779022968239 - center_coordinates[4,2])**2 - distance[2] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,3] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5847392935581466 - center_coordinates[4,1])**2 + (-0.8440164802409358 - center_coordinates[4,2])**2 - distance[3] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,4] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5036057920820878 - center_coordinates[4,1])**2 + (0.27863994120416646 - center_coordinates[4,2])**2 - distance[4] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,5] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.2169911149713868 - center_coordinates[4,1])**2 + (0.03157186628546649 - center_coordinates[4,2])**2 - distance[5] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,6] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.6511239551901777 - center_coordinates[4,1])**2 + (0.44375112108060266 - center_coordinates[4,2])**2 - distance[6] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,7] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.07346332874568584 - center_coordinates[4,1])**2 + (-0.7531142350197326 - center_coordinates[4,2])**2 - distance[7] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,8] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.7098444333644678 - center_coordinates[4,1])**2 + (-0.8740086113307153 - center_coordinates[4,2])**2 - distance[8] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,9] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09487142009171734 - center_coordinates[4,1])**2 + (-0.7666489925347715 - center_coordinates[4,2])**2 - distance[9] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,10] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9375344063585616 - center_coordinates[4,1])**2 + (0.41173652111798664 - center_coordinates[4,2])**2 - distance[10] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,11] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09299565819481903 - center_coordinates[4,1])**2 + (0.8928010721062851 - center_coordinates[4,2])**2 - distance[11] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,12] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (-0.3711461223530439 - center_coordinates[4,1])**2 + (0.532448527961805 - center_coordinates[4,2])**2 - distance[12] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,13] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9492018082149409 - center_coordinates[4,1])**2 + (0.31144064376213465 - center_coordinates[4,2])**2 - distance[13] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[4,14] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.8197226304086573 - center_coordinates[4,1])**2 + (0.6433506624818937 - center_coordinates[4,2])**2 - distance[14] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,1] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.30542052956899113 - center_coordinates[5,1])**2 + (-0.3528026035461338 - center_coordinates[5,2])**2 - distance[1] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,2] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.12633533579729672 - center_coordinates[5,1])**2 + (0.2875779022968239 - center_coordinates[5,2])**2 - distance[2] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,3] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5847392935581466 - center_coordinates[5,1])**2 + (-0.8440164802409358 - center_coordinates[5,2])**2 - distance[3] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,4] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.5036057920820878 - center_coordinates[5,1])**2 + (0.27863994120416646 - center_coordinates[5,2])**2 - distance[4] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,5] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.2169911149713868 - center_coordinates[5,1])**2 + (0.03157186628546649 - center_coordinates[5,2])**2 - distance[5] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,6] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   1.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.6511239551901777 - center_coordinates[5,1])**2 + (0.44375112108060266 - center_coordinates[5,2])**2 - distance[6] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None :  True : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,7] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.07346332874568584 - center_coordinates[5,1])**2 + (-0.7531142350197326 - center_coordinates[5,2])**2 - distance[7] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,8] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (0.7098444333644678 - center_coordinates[5,1])**2 + (-0.8740086113307153 - center_coordinates[5,2])**2 - distance[8] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,9] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09487142009171734 - center_coordinates[5,1])**2 + (-0.7666489925347715 - center_coordinates[5,2])**2 - distance[9] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,10] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9375344063585616 - center_coordinates[5,1])**2 + (0.41173652111798664 - center_coordinates[5,2])**2 - distance[10] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,11] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (0.09299565819481903 - center_coordinates[5,1])**2 + (0.8928010721062851 - center_coordinates[5,2])**2 - distance[11] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,12] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                 : Upper : Active
+                    None :  -Inf : (-0.3711461223530439 - center_coordinates[5,1])**2 + (0.532448527961805 - center_coordinates[5,2])**2 - distance[12] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,13] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                   : Upper : Active
+                    None :  -Inf : (-0.9492018082149409 - center_coordinates[5,1])**2 + (0.31144064376213465 - center_coordinates[5,2])**2 - distance[13] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+        disjunct_blocks[5,14] : Active=False
+            1 Var Declarations
+                binary_indicator_var : Size=1, Index=None
+                    Key  : Lower : Value : Upper : Fixed : Stale : Domain
+                    None :     0 :   0.0 :     1 : False : False : Binary
+
+            1 Constraint Declarations
+                cons : Size=1, Index=None, Active=False
+                    Key  : Lower : Body                                                                                                                  : Upper : Active
+                    None :  -Inf : (-0.8197226304086573 - center_coordinates[5,1])**2 + (0.6433506624818937 - center_coordinates[5,2])**2 - distance[14] :   0.0 :  False
+
+            1 BooleanVar Declarations
+                indicator_var : Size=1, Index=None
+                    Key  : Value : Fixed : Stale
+                    None : False : False : False
+
+            3 Declarations: indicator_var binary_indicator_var cons
+
+1 Disjunction Declarations
+    assignment : Size=14, Index=points, Active=False
+        Key : Disjuncts                                                                                                                     : Active : XOR
+          1 :      ['disjunct_blocks[1,1]', 'disjunct_blocks[2,1]', 'disjunct_blocks[3,1]', 'disjunct_blocks[4,1]', 'disjunct_blocks[5,1]'] :  False : True
+          2 :      ['disjunct_blocks[1,2]', 'disjunct_blocks[2,2]', 'disjunct_blocks[3,2]', 'disjunct_blocks[4,2]', 'disjunct_blocks[5,2]'] :  False : True
+          3 :      ['disjunct_blocks[1,3]', 'disjunct_blocks[2,3]', 'disjunct_blocks[3,3]', 'disjunct_blocks[4,3]', 'disjunct_blocks[5,3]'] :  False : True
+          4 :      ['disjunct_blocks[1,4]', 'disjunct_blocks[2,4]', 'disjunct_blocks[3,4]', 'disjunct_blocks[4,4]', 'disjunct_blocks[5,4]'] :  False : True
+          5 :      ['disjunct_blocks[1,5]', 'disjunct_blocks[2,5]', 'disjunct_blocks[3,5]', 'disjunct_blocks[4,5]', 'disjunct_blocks[5,5]'] :  False : True
+          6 :      ['disjunct_blocks[1,6]', 'disjunct_blocks[2,6]', 'disjunct_blocks[3,6]', 'disjunct_blocks[4,6]', 'disjunct_blocks[5,6]'] :  False : True
+          7 :      ['disjunct_blocks[1,7]', 'disjunct_blocks[2,7]', 'disjunct_blocks[3,7]', 'disjunct_blocks[4,7]', 'disjunct_blocks[5,7]'] :  False : True
+          8 :      ['disjunct_blocks[1,8]', 'disjunct_blocks[2,8]', 'disjunct_blocks[3,8]', 'disjunct_blocks[4,8]', 'disjunct_blocks[5,8]'] :  False : True
+          9 :      ['disjunct_blocks[1,9]', 'disjunct_blocks[2,9]', 'disjunct_blocks[3,9]', 'disjunct_blocks[4,9]', 'disjunct_blocks[5,9]'] :  False : True
+         10 : ['disjunct_blocks[1,10]', 'disjunct_blocks[2,10]', 'disjunct_blocks[3,10]', 'disjunct_blocks[4,10]', 'disjunct_blocks[5,10]'] :  False : True
+         11 : ['disjunct_blocks[1,11]', 'disjunct_blocks[2,11]', 'disjunct_blocks[3,11]', 'disjunct_blocks[4,11]', 'disjunct_blocks[5,11]'] :  False : True
+         12 : ['disjunct_blocks[1,12]', 'disjunct_blocks[2,12]', 'disjunct_blocks[3,12]', 'disjunct_blocks[4,12]', 'disjunct_blocks[5,12]'] :  False : True
+         13 : ['disjunct_blocks[1,13]', 'disjunct_blocks[2,13]', 'disjunct_blocks[3,13]', 'disjunct_blocks[4,13]', 'disjunct_blocks[5,13]'] :  False : True
+         14 : ['disjunct_blocks[1,14]', 'disjunct_blocks[2,14]', 'disjunct_blocks[3,14]', 'disjunct_blocks[4,14]', 'disjunct_blocks[5,14]'] :  False : True
+
+16 Declarations: n_dimensions n_clusters n_points coord_range_lower coord_range_upper dimensions clusters points points_coordinates center_coordinates distance symmetry_breaking disjunct_blocks assignment obj _pyomo_gdp_bigm_reformulation
