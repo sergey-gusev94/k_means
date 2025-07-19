@@ -120,12 +120,12 @@ def create_solution_time_comparison(
         )
 
     # Add labels and title
-    plt.xlabel(f"{display_name1} Solution Time (seconds)", fontsize=28)
-    plt.ylabel(f"{display_name2} Solution Time (seconds)", fontsize=28)
-    plt.title(f"Solution Time Comparison\n{display_name1} vs {display_name2}", fontsize=32)
+    plt.xlabel(f"{display_name1} Solution Time (s)", fontsize=28)
+    plt.ylabel(f"{display_name2} Solution Time (s)", fontsize=28)
+    # plt.title(f"Solution Time Comparison\n{display_name1} vs {display_name2}", fontsize=32)
 
     # Add legend (always show it, regardless of whether there are different objectives)
-    plt.legend(loc="lower right", fontsize=18, framealpha=0.4)
+    plt.legend(loc="lower right", fontsize=26, framealpha=0.4)
 
     # Add grid
     plt.grid(True, alpha=0.3)
@@ -144,7 +144,10 @@ def create_solution_time_comparison(
     plt.ylim(min_time, max_time)
 
     # Set tick parameters to match performance profile style
-    plt.tick_params(axis="both", which="major", labelsize=20)
+    plt.tick_params(axis="both", which="major", labelsize=24)
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
 
     # Save the figure
     output_file = os.path.join(output_dir, f"comparison_{strategy1}_vs_{strategy2}.jpg")
@@ -193,6 +196,8 @@ def create_relaxation_gap_comparison(
         axis_label = "Absolute Gap"
         title_prefix = "Absolute"
         filename_prefix = "absolute_gap"
+
+    print(title_prefix)
 
     # Check if the required column exists
     if col_name not in df.columns:
@@ -260,9 +265,9 @@ def create_relaxation_gap_comparison(
         )
 
     # Add labels and title
-    plt.xlabel(f"{strategy1} {axis_label}", fontsize=12)
-    plt.ylabel(f"{strategy2} {axis_label}", fontsize=12)
-    plt.title(f"{title_prefix} Relaxation Gap Comparison: {strategy1} vs {strategy2}", fontsize=14)
+    plt.xlabel(f"{strategy1} {axis_label}", fontsize=20)
+    plt.ylabel(f"{strategy2} {axis_label}", fontsize=20)
+    # plt.title(f"{title_prefix} Relaxation Gap: {strategy1} vs {strategy2}", fontsize=14)
 
     # Add legend (only if there are different objectives)
     if np.any(red_points):
@@ -274,6 +279,9 @@ def create_relaxation_gap_comparison(
     # Set axis limits
     plt.xlim(min_gap, max_gap)
     plt.ylim(min_gap, max_gap)
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
 
     # Save the figure
     output_file = os.path.join(output_dir, f"{filename_prefix}_{strategy1}_vs_{strategy2}.jpg")
@@ -322,6 +330,8 @@ def create_node_relaxation_comparison(
         axis_label = "Root Relaxation Gap (%)"
         title_prefix = "Root Relaxation Gap"
         filename_prefix = "node_relaxation_gap"
+
+    print(title_prefix)
 
     # Check if the required column exists
     if col_name not in df.columns:
@@ -413,9 +423,9 @@ def create_node_relaxation_comparison(
         )
 
     # Add labels and title
-    plt.xlabel(f"{strategy1} {axis_label}", fontsize=12)
-    plt.ylabel(f"{strategy2} {axis_label}", fontsize=12)
-    plt.title(f"{title_prefix} Comparison: {strategy1} vs {strategy2}", fontsize=14)
+    plt.xlabel(f"{strategy1} {axis_label}", fontsize=20)
+    plt.ylabel(f"{strategy2} {axis_label}", fontsize=20)
+    # plt.title(f"{title_prefix} Comparison: {strategy1} vs {strategy2}", fontsize=14)
 
     # Add legend (only if there are different objectives)
     if np.any(red_points):
@@ -427,6 +437,9 @@ def create_node_relaxation_comparison(
     # Set axis limits
     plt.xlim(min_plot, max_plot)
     plt.ylim(min_plot, max_plot)
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
 
     # Save the figure
     output_file = os.path.join(output_dir, f"{filename_prefix}_{strategy1}_vs_{strategy2}.jpg")
@@ -521,9 +534,9 @@ def create_performance_profile(
             x=time_limit, color="r", linestyle="--", alpha=0.7, label=f"Time limit {time_limit}s"
         )
 
-        plt.xlabel("Solution Time (seconds)", fontsize=32)
+        plt.xlabel("Solution Time (s)", fontsize=32)
         plt.ylabel("Number of Instances Solved", fontsize=32)
-        plt.title(f"Performance Profile: {strategy}", fontsize=34)
+        # plt.title(f"Performance Profile: {strategy}", fontsize=34)
 
         # Add grid
         plt.grid(True, alpha=0.3)
@@ -533,6 +546,9 @@ def create_performance_profile(
 
         # Add legend in bottom right corner
         plt.legend(loc="lower right", fontsize=24, framealpha=0.4)
+
+        # Adjust layout to prevent label cutoff
+        plt.tight_layout()
 
         # Save the figure
         output_file = os.path.join(output_dir, f"profile_{strategy}.jpg")
@@ -599,9 +615,9 @@ def create_performance_profile(
             label=f"Time limit {time_limit}s",
         )
 
-    plt.xlabel("Solution Time (seconds)", fontsize=36)
-    plt.ylabel("Number of Instances Solved", fontsize=36)
-    plt.title("Performance Profiles", fontsize=38)
+    plt.xlabel("Solution Time (s)", fontsize=34)
+    plt.ylabel("Number of Instances Solved", fontsize=34)
+    # plt.title("Performance Profiles", fontsize=38)
 
     if separate_time_limit_legend:
         # First legend for strategies (upper left)
@@ -626,6 +642,9 @@ def create_performance_profile(
 
     # Set x-axis to log scale
     plt.xscale("log")
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
 
     # Save the figure
     output_file = os.path.join(output_dir, "profile_combined.jpg")
@@ -1023,15 +1042,17 @@ def create_performance_profile(
                     linestyle=style,
                     color=color,
                 )
+
+        print(fig)
         # Axis settings
         ax_runtime.set_xscale("log")
         ax_runtime.set_xlim(min_time, time_limit)
         ax_gap.set_xlim(0, finite_max)
         ax_runtime.set_ylim(0, n_total + 1)
         ax_gap.set_ylim(0, n_total + 1)
-        ax_runtime.set_xlabel("Runtime [s]", fontsize=22)
-        ax_gap.set_xlabel("Gap", fontsize=22)
-        ax_runtime.set_ylabel("Number of Instances", fontsize=22)
+        ax_runtime.set_xlabel("Runtime [s]", fontsize=38)
+        ax_gap.set_xlabel("Gap", fontsize=38)
+        ax_runtime.set_ylabel("Number of Instances", fontsize=38)
         plt.setp(ax_gap.get_yticklabels(), visible=False)
         d = 0.015
         kwargs = dict(transform=ax_runtime.transAxes, color="k", clip_on=False)
@@ -1041,13 +1062,14 @@ def create_performance_profile(
         ax_gap.plot([0, 0], [-d, +d], **kwargs)
         ax_gap.plot([0, 0], [1 - d, 1 + d], **kwargs)
         ax_runtime.legend(
-            strategy_lines, strategy_labels, loc="upper left", fontsize=15, framealpha=0.4
+            strategy_lines, strategy_labels, loc="upper left", fontsize=26, framealpha=0.4
         )
         ax_runtime.grid(True, alpha=0.3)
         ax_gap.grid(True, alpha=0.3)
-        ax_runtime.tick_params(axis="both", which="major", labelsize=16)
-        ax_gap.tick_params(axis="both", which="major", labelsize=16)
-        fig.suptitle("Absolute Performance Profile", fontsize=26)
+        ax_runtime.tick_params(axis="both", which="major", labelsize=28)
+        ax_gap.tick_params(axis="both", which="major", labelsize=28)
+        # fig.suptitle("Absolute Performance Profile", fontsize=26)
+        plt.tight_layout()
         output_file_absolute = os.path.join(output_dir, "profile_absolute_performance.jpg")
         plt.savefig(output_file_absolute, dpi=300, bbox_inches="tight")
         plt.close()
