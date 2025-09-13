@@ -111,6 +111,19 @@ def process_archive_folder(archive_folder: str) -> None:
             solver_df, solver_dir, time_limit=1800, exclude_strategies=["gdp.hull_reduced_y"]
         )
 
+        # Generate performance profiles for specified reformulations only
+        print("\nGenerating performance profiles for specific reformulations...")
+        print(f"Available strategies in solver_df: {list(solver_df['Strategy'].unique())}")
+        specified_reformulations = ["gdp.hull_exact", "gdp.hull"]
+        print(f"Requested strategies: {specified_reformulations}")
+        create_performance_profile(
+            solver_df,
+            solver_dir,
+            time_limit=1800,
+            include_strategies=specified_reformulations,
+            output_suffix="hull_exact_vs_hull",
+        )
+
         # Create subfolder for this solver's relaxation gap plots
         solver_gaps_dir = os.path.join(plots_folder, "relaxation_gaps", solver_combo)
         os.makedirs(solver_gaps_dir, exist_ok=True)

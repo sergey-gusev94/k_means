@@ -455,6 +455,8 @@ def create_performance_profile(
     obj_tolerance: float = 1e-4,
     exclude_strategies: Optional[list] = None,
     separate_time_limit_legend: bool = False,
+    include_strategies: Optional[list] = None,
+    output_suffix: str = "",
 ) -> None:
     """
     Create performance profiles showing number of instances solved within a time limit.
@@ -474,6 +476,10 @@ def create_performance_profile(
     separate_time_limit_legend : bool, optional
         If True, show the time limit in a separate legend in the bottom right.
         If False, include it with the strategies in the main legend (upper left).
+    include_strategies : list, optional
+        List of strategies to include (if None, include all strategies), by default None
+    output_suffix : str, optional
+        Suffix to add to output filenames, by default ""
     """
     print("Creating performance profiles...")
 
@@ -512,6 +518,23 @@ def create_performance_profile(
 
     # Get unique strategies
     strategies = df["Strategy"].unique()
+    print(f"All unique strategies found in data: {list(strategies)}")
+
+    # Apply strategy filtering
+    if include_strategies is not None:
+        original_strategies = list(strategies)
+        strategies = [s for s in strategies if s in include_strategies]
+        print(f"Filtering to include only strategies: {include_strategies}")
+        print(f"Original strategies: {original_strategies}")
+        print(f"Available strategies after filtering: {list(strategies)}")
+
+        # If no strategies match the filter, warn and return early
+        if not strategies:
+            print(
+                "Warning: No strategies match the include_strategies filter. \
+                    Skipping profile generation."
+            )
+            return
 
     # Create individual performance profiles
     for strategy in strategies:
@@ -551,7 +574,8 @@ def create_performance_profile(
         plt.tight_layout()
 
         # Save the figure
-        output_file = os.path.join(output_dir, f"profile_{strategy}.jpg")
+        strategy_suffix = f"_{output_suffix}" if output_suffix else ""
+        output_file = os.path.join(output_dir, f"profile_{strategy}{strategy_suffix}.jpg")
         plt.savefig(output_file, dpi=300, bbox_inches="tight")
         plt.close()
         print(f"  Saved to {output_file}")
@@ -647,7 +671,8 @@ def create_performance_profile(
     plt.tight_layout()
 
     # Save the figure
-    output_file = os.path.join(output_dir, "profile_combined.jpg")
+    combined_suffix = f"_{output_suffix}" if output_suffix else ""
+    output_file = os.path.join(output_dir, f"profile_combined{combined_suffix}.jpg")
     plt.savefig(output_file, dpi=300, bbox_inches="tight")
     plt.close()
     print(f"Saved combined profile to {output_file}")
@@ -659,6 +684,7 @@ def create_performance_profile(
         strategies: list,
         style_map: dict,
         color_map: dict,
+        output_suffix: str = "",
     ) -> None:
         if "Bound Absolute Gap" not in df.columns:
             print("Bound Absolute Gap column not found, skipping gap profile plot.")
@@ -722,13 +748,16 @@ def create_performance_profile(
             framealpha=0.4,
             title="solver",
         )
-        output_file_gap = os.path.join(output_dir, "profile_combined_gap.jpg")
+        gap_suffix = f"_{output_suffix}" if output_suffix else ""
+        output_file_gap = os.path.join(output_dir, f"profile_combined_gap{gap_suffix}.jpg")
         plt.savefig(output_file_gap, dpi=300, bbox_inches="tight")
         plt.close()
         print(f"Saved gap performance profile to {output_file_gap}")
 
     # Create gap performance profile
-    create_gap_performance_profile(df, output_dir, time_limit, strategies, style_map, color_map)
+    create_gap_performance_profile(
+        df, output_dir, time_limit, strategies, style_map, color_map, output_suffix
+    )
 
     # Create summary bar chart of solution outcomes
     print("Creating solution outcome bar plots...")
@@ -855,6 +884,7 @@ def create_performance_profile(
         strategies: list,
         style_map: dict,
         color_map: dict,
+        output_suffix: str = "",
     ) -> None:
         if "Bound Absolute Gap" not in df.columns:
             print(
@@ -956,7 +986,10 @@ def create_performance_profile(
         ax_runtime.tick_params(axis="both", which="major", labelsize=16)
         ax_gap.tick_params(axis="both", which="major", labelsize=16)
         fig.suptitle("Fractional Performance Profile", fontsize=26)
-        output_file_fraction = os.path.join(output_dir, "profile_fraction_performance.jpg")
+        fraction_suffix = f"_{output_suffix}" if output_suffix else ""
+        output_file_fraction = os.path.join(
+            output_dir, f"profile_fraction_performance{fraction_suffix}.jpg"
+        )
         plt.savefig(output_file_fraction, dpi=300, bbox_inches="tight")
         plt.close()
         print(f"Saved fractional performance profile to {output_file_fraction}")
@@ -968,6 +1001,7 @@ def create_performance_profile(
         strategies: list,
         style_map: dict,
         color_map: dict,
+        output_suffix: str = "",
     ) -> None:
         if "Bound Absolute Gap" not in df.columns:
             print(
@@ -1070,17 +1104,20 @@ def create_performance_profile(
         ax_gap.tick_params(axis="both", which="major", labelsize=28)
         # fig.suptitle("Absolute Performance Profile", fontsize=26)
         plt.tight_layout()
-        output_file_absolute = os.path.join(output_dir, "profile_absolute_performance.jpg")
+        absolute_suffix = f"_{output_suffix}" if output_suffix else ""
+        output_file_absolute = os.path.join(
+            output_dir, f"profile_absolute_performance{absolute_suffix}.jpg"
+        )
         plt.savefig(output_file_absolute, dpi=300, bbox_inches="tight")
         plt.close()
         print(f"Saved absolute performance profile to {output_file_absolute}")
 
     # Call the new performance profile functions
     create_fraction_performance_profile(
-        df, output_dir, time_limit, strategies, style_map, color_map
+        df, output_dir, time_limit, strategies, style_map, color_map, output_suffix
     )
     create_absolute_performance_profile(
-        df, output_dir, time_limit, strategies, style_map, color_map
+        df, output_dir, time_limit, strategies, style_map, color_map, output_suffix
     )
 
 
@@ -1199,6 +1236,19 @@ def main() -> None:
         print("\nGenerating performance profiles...")
         create_performance_profile(
             solver_df, solver_dir, time_limit=time_limit, exclude_strategies=["gdp.hull_reduced_y"]
+        )
+
+        # Generate performance profiles for specified reformulations only
+        print("\nGenerating performance profiles for specific reformulations...")
+        print(f"Available strategies in solver_df: {list(solver_df['Strategy'].unique())}")
+        specified_reformulations = ["gdp.hull_exact", "gdp.hull"]
+        print(f"Requested strategies: {specified_reformulations}")
+        create_performance_profile(
+            solver_df,
+            solver_dir,
+            time_limit=time_limit,
+            include_strategies=specified_reformulations,
+            output_suffix="hull_exact_vs_hull",
         )
 
         # Create subfolder for this solver's relaxation gap plots
