@@ -1,0 +1,101 @@
+AGGREGATED SOLUTION OUTCOMES REPORT - K-MEANS PROJECT
+================================================================================
+
+Generated on: 2025-09-19 00:07:12
+Total experiments analyzed: 3
+
+INDIVIDUAL EXPERIMENT SUMMARIES
+================================================================================
+
+1. EXPERIMENT: DATA
+   Solver: gurobi
+   Time limit: 1800 seconds
+   Objective tolerance: 0.0001
+   File: /home/sergey-gusev/Desktop/research/projects/k_means/data/archive/gurobi/plots/gams_gurobi/solution_outcomes.txt
+
+   Strategy             Optimal  Timeout  Infeasible Wrong_Opt Solver_Err Missing  Total   
+   -------------------------------------------------------------------------------------
+   BigM                 84       12       0          0         0          0        96      
+   Hull(ε-approx.)      34       62       0          0         0          0        96      
+   Hull Exact           82       14       0          0         0          0        96      
+   Binary Mult.         40       56       0          0         0          0        96      
+   -------------------------------------------------------------------------------------
+   TOTAL                240      144      0          0         0          0        384     
+
+================================================================================
+
+2. EXPERIMENT: DATA
+   Solver: baron
+   Time limit: 1800 seconds
+   Objective tolerance: 0.0001
+   File: /home/sergey-gusev/Desktop/research/projects/k_means/data/archive/baron/plots/gams_baron/solution_outcomes.txt
+
+   Strategy             Optimal  Timeout  Infeasible Wrong_Opt Solver_Err Missing  Total   
+   -------------------------------------------------------------------------------------
+   BigM                 91       5        0          0         0          0        96      
+   Hull(ε-approx.)      38       1        2          55        0          0        96      
+   Hull Exact           64       32       0          0         0          0        96      
+   Binary Mult.         74       22       0          0         0          0        96      
+   -------------------------------------------------------------------------------------
+   TOTAL                267      60       2          55        0          0        384     
+
+================================================================================
+
+3. EXPERIMENT: DATA
+   Solver: scip
+   Time limit: 1800 seconds
+   Objective tolerance: 0.0001
+   File: /home/sergey-gusev/Desktop/research/projects/k_means/data/archive/scip/plots/gams_scip/solution_outcomes.txt
+
+   Strategy             Optimal  Timeout  Infeasible Wrong_Opt Solver_Err Missing  Total   
+   -------------------------------------------------------------------------------------
+   BigM                 19       77       0          0         0          0        96      
+   Hull(ε-approx.)      1        95       0          0         0          0        96      
+   Hull Exact           13       83       0          0         0          0        96      
+   Binary Mult.         17       79       0          0         0          0        96      
+   -------------------------------------------------------------------------------------
+   TOTAL                50       334      0          0         0          0        384     
+
+================================================================================
+
+OVERALL AGGREGATED STATISTICS
+================================================================================
+
+STRATEGY PERFORMANCE ACROSS ALL EXPERIMENTS
+--------------------------------------------------------------------------------
+
+Strategy             Optimal  Timeout  Infeasible Wrong_Opt Solver_Err Missing  Total    Experiments
+----------------------------------------------------------------------------------------------------
+BigM                 194      94       0          0         0          0        288      3  
+Hull(ε-approx.)      73       158      2          55        0          0        288      3  
+Hull Exact           159      129      0          0         0          0        288      3  
+Binary Mult.         131      157      0          0         0          0        288      3  
+----------------------------------------------------------------------------------------------------
+GRAND TOTAL          557      538      2          55        0          0        1152    
+
+EXPERIMENT COMPARISON
+--------------------------------------------------------------------------------
+
+Experiment                     Solver          Optimal  Timeout  Problems Total   
+-------------------------------------------------------------------------------------
+data                           gurobi          240      144      96       384     
+data                           baron           267      60       96       384     
+data                           scip            50       334      96       384     
+
+================================================================================
+
+PERFORMANCE INSIGHTS
+--------------------------------------------------------------------------------
+
+Best performing strategy (by optimal solutions): BigM
+  - Optimal solutions: 194
+  - Success rate: 67.4%
+
+Strategy with most timeouts: Hull(ε-approx.)
+  - Timeouts: 158
+  - Timeout rate: 54.9%
+
+Strategy with most infeasible solutions: Hull(ε-approx.)
+  - Infeasible: 2
+  - Infeasible rate: 0.7%
+

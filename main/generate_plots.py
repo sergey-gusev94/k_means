@@ -965,61 +965,115 @@ def create_performance_profile(
     # Initialize counts and create a list to store results for text file
     counts_opt = []
     counts_timeout = []
-    counts_wrong = []
+    counts_infeasible = []
+    counts_wrong_optimal = []
+    counts_solver_error = []
+    counts_missing = []
     results_data = []
+
+    # Get all unique models to determine missing data
+    all_models = set(df_orig["Model Name"].unique())
 
     for strategy in strategies_orig:
         s_df = df_orig[df_orig["Strategy"] == strategy]
+
+        # Models present for this strategy
+        strategy_models = set(s_df["Model Name"].unique())
+
+        # Missing models (not in data for this strategy)
+        missing_models = all_models - strategy_models
+        n_missing = len(missing_models)
+
         # Number of timeouts
         n_timeout = (s_df["Duration (sec)"] >= time_limit).sum()
+
         # Entries that didn't timeout
         s_not_timeout = s_df[s_df["Duration (sec)"] < time_limit]
-        # Determine correct optimal solutions
+
+        # Initialize detailed counters for non-timeout cases
+        n_opt = 0
+        n_infeasible = 0
+        n_wrong_optimal = 0
+        n_solver_error = 0
+
+        # Determine correct optimal solutions and categorize failures
         if "Status" in s_not_timeout.columns and "Objective Value" in s_not_timeout.columns:
             gt = s_not_timeout["Model Name"].map(ground_truth_orig)
+
+            # Correct optimal solutions
             correct_opt = s_not_timeout[
                 (s_not_timeout["Status"] == "optimal")
                 & (np.abs(s_not_timeout["Objective Value"] - gt) <= obj_tolerance)
             ]
             n_opt = len(correct_opt)
 
-            # Print details about wrong solutions
-            wrong_solutions = s_not_timeout[
+            # Categorize non-optimal solutions
+            non_optimal = s_not_timeout[
                 ~(
                     (s_not_timeout["Status"] == "optimal")
                     & (np.abs(s_not_timeout["Objective Value"] - gt) <= obj_tolerance)
                 )
             ]
-            if len(wrong_solutions) > 0:
-                print(f"\nWrong solutions for {strategy}:")
-                for _, row in wrong_solutions.iterrows():
-                    model_name = row["Model Name"]
+
+            # Print details about wrong solutions
+            if len(non_optimal) > 0:
+                print(f"\nNon-optimal solutions for {strategy}:")
+
+            for _, row in non_optimal.iterrows():
+                model_name = row["Model Name"]
+                status = row["Status"]
+
+                # Categorize based on status
+                if status == "optimal":
+                    # Wrong optimal solution (correct status but wrong objective)
+                    n_wrong_optimal += 1
                     reformulation_obj = row["Objective Value"]
                     ground_truth_obj = ground_truth_orig[model_name]
-                    print(f"  Model: {model_name}")
+                    print(f"  Wrong Optimal - Model: {model_name}")
                     print(f"    Reformulation objective: {reformulation_obj}")
                     print(f"    Ground truth objective: {ground_truth_obj}")
                     print(f"    Difference: {abs(reformulation_obj - ground_truth_obj)}")
-                    print(f"    Status: {row['Status']}")
-                    print()
+                elif "infeasible" in status.lower() or "unbounded" in status.lower():
+                    # Infeasible or unbounded
+                    n_infeasible += 1
+                    print(f"  Infeasible - Model: {model_name}, Status: {status}")
+                else:
+                    # Solver error or other failure
+                    n_solver_error += 1
+                    print(f"  Solver Error - Model: {model_name}, Status: {status}")
+
+                print()
         else:
+            # Fallback when Status or Objective Value columns are missing
             n_opt = 0
-        # Wrong solutions: non-timeouts that are not correct optimal
-        n_wrong = len(s_not_timeout) - n_opt
+            n_infeasible = 0
+            n_wrong_optimal = 0
+            n_solver_error = len(s_not_timeout)
+
         counts_opt.append(n_opt)
         counts_timeout.append(n_timeout)
-        counts_wrong.append(n_wrong)
+        counts_infeasible.append(n_infeasible)
+        counts_wrong_optimal.append(n_wrong_optimal)
+        counts_solver_error.append(n_solver_error)
+        counts_missing.append(n_missing)
 
         # Store results for text file
         display_name = _get_strategy_display_name(strategy)
+
+        total_attempts = (
+            n_opt + n_timeout + n_infeasible + n_wrong_optimal + n_solver_error + n_missing
+        )
 
         results_data.append(
             {
                 "Strategy": display_name,
                 "Optimal": n_opt,
                 "Timeout": n_timeout,
-                "Wrong": n_wrong,
-                "Total": n_opt + n_timeout + n_wrong,
+                "Infeasible": n_infeasible,
+                "Wrong_Optimal": n_wrong_optimal,
+                "Solver_Error": n_solver_error,
+                "Missing": n_missing,
+                "Total": total_attempts,
             }
         )
 
@@ -1027,43 +1081,153 @@ def create_performance_profile(
     txt_output = os.path.join(output_dir, "solution_outcomes.txt")
     with open(txt_output, "w") as f:
         f.write("Solution Outcomes Summary\n")
-        f.write("=======================\n\n")
+        f.write("=========================\n\n")
         f.write(f"Time limit: {time_limit} seconds\n")
         f.write(f"Objective tolerance: {obj_tolerance}\n\n")
+        f.write("Categories:\n")
+        f.write("- Optimal: Correct optimal solutions within time limit\n")
+        f.write("- Timeout: Solutions that reached the time limit\n")
+        f.write("- Infeasible: Solver reported problem as infeasible/unbounded\n")
+        f.write("- Wrong_Optimal: Solver reported optimal but objective value is incorrect\n")
+        f.write("- Solver_Error: Solver failed with error or other non-optimal status\n")
+        f.write("- Missing: Problems not present in data for this strategy\n\n")
 
         # Write table header
-        f.write(f"{'Strategy':<20} {'Optimal':<10} {'Timeout':<10} {'Wrong':<10} {'Total':<10}\n")
-        f.write("-" * 60 + "\n")
+        f.write(
+            f"{'Strategy':<20} {'Optimal':<10} {'Timeout':<10} {'Infeasible':<12} "
+            f"{'Wrong_Opt':<11} {'Solver_Err':<12} {'Missing':<10} {'Total':<10}\n"
+        )
+        f.write("-" * 105 + "\n")
 
         # Write data rows
         for data in results_data:
             f.write(
                 f"{data['Strategy']:<20} {data['Optimal']:<10} {data['Timeout']:<10} "
-                f"{data['Wrong']:<10} {data['Total']:<10}\n"
+                f"{data['Infeasible']:<12} {data['Wrong_Optimal']:<11} "
+                f"{data['Solver_Error']:<12} {data['Missing']:<10} {data['Total']:<10}\n"
             )
+
+        # Write summary statistics
+        f.write("\n" + "=" * 105 + "\n")
+        f.write("Summary Statistics:\n")
+        f.write("-" * 105 + "\n")
+
+        total_optimal = sum(data["Optimal"] for data in results_data)
+        total_timeout = sum(data["Timeout"] for data in results_data)
+        total_infeasible = sum(data["Infeasible"] for data in results_data)
+        total_wrong_optimal = sum(data["Wrong_Optimal"] for data in results_data)
+        total_solver_error = sum(data["Solver_Error"] for data in results_data)
+        total_missing = sum(data["Missing"] for data in results_data)
+        grand_total = sum(data["Total"] for data in results_data)
+
+        f.write(
+            f"{'TOTAL':<20} {total_optimal:<10} {total_timeout:<10} "
+            f"{total_infeasible:<12} {total_wrong_optimal:<11} "
+            f"{total_solver_error:<12} {total_missing:<10} {grand_total:<10}\n"
+        )
 
     print(f"Saved solution outcomes summary to {txt_output}")
 
-    # Plot bar chart
+    # Plot bar chart with detailed categories
     x = np.arange(len(strategies_orig))
-    width = 0.2
-    plt.figure(figsize=(10, 6))
-    plt.bar(x - width, counts_opt, width, label="Optimal", color="green")
-    plt.bar(x, counts_timeout, width, label="Timeout", color="orange")
-    plt.bar(x + width, counts_wrong, width, label="Wrong Solution", color="red")
+    width = 0.13  # Narrower bars to fit 6 categories
+    plt.figure(figsize=(16, 8))  # Wider figure to accommodate more bars
+
+    # Define colors for each category
+    colors = {
+        "Optimal": "green",
+        "Timeout": "orange",
+        "Infeasible": "red",
+        "Wrong_Optimal": "darkred",
+        "Solver_Error": "purple",
+        "Missing": "gray",
+    }
+
+    # Plot bars with offset positions
+    plt.bar(x - 2.5 * width, counts_opt, width, label="Optimal", color=colors["Optimal"])
+    plt.bar(x - 1.5 * width, counts_timeout, width, label="Timeout", color=colors["Timeout"])
+    plt.bar(
+        x - 0.5 * width, counts_infeasible, width, label="Infeasible", color=colors["Infeasible"]
+    )
+    plt.bar(
+        x + 0.5 * width,
+        counts_wrong_optimal,
+        width,
+        label="Wrong Optimal",
+        color=colors["Wrong_Optimal"],
+    )
+    plt.bar(
+        x + 1.5 * width,
+        counts_solver_error,
+        width,
+        label="Solver Error",
+        color=colors["Solver_Error"],
+    )
+    plt.bar(x + 2.5 * width, counts_missing, width, label="Missing Data", color=colors["Missing"])
+
     plt.xlabel("Strategy", fontsize=30)
     plt.ylabel("Count", fontsize=30)
-    plt.title("Solution Outcomes by Strategy", fontsize=32)
+    plt.title("Detailed Solution Outcomes by Strategy", fontsize=32)
     display_names = [_get_strategy_display_name(s) for s in strategies_orig]
     plt.xticks(x, display_names, rotation=0, fontsize=22)
     plt.yticks(fontsize=18)
-    plt.legend(loc="upper center", bbox_to_anchor=(0.32, 1), fontsize=22, framealpha=0.5)
+    plt.legend(loc="upper left", fontsize=18, framealpha=0.5, ncol=2)
     plt.grid(axis="y", alpha=0.3)
-    bar_output = os.path.join(output_dir, "solution_outcomes_bar.jpg")
+    bar_output = os.path.join(output_dir, "solution_outcomes_detailed_bar.jpg")
     plt.tight_layout()
     plt.savefig(bar_output, dpi=300, bbox_inches="tight")
     plt.close()
-    print(f"Saved bar plot to {bar_output}")
+    print(f"Saved detailed bar plot to {bar_output}")
+
+    # Also create a simplified stacked bar chart for better readability
+    plt.figure(figsize=(12, 8))
+
+    # Create stacked bars
+    plt.bar(x, counts_opt, label="Optimal", color=colors["Optimal"])
+    plt.bar(x, counts_timeout, bottom=counts_opt, label="Timeout", color=colors["Timeout"])
+
+    bottom_infeasible = np.array(counts_opt) + np.array(counts_timeout)
+    plt.bar(
+        x,
+        counts_infeasible,
+        bottom=bottom_infeasible,
+        label="Infeasible",
+        color=colors["Infeasible"],
+    )
+
+    bottom_wrong = bottom_infeasible + np.array(counts_infeasible)
+    plt.bar(
+        x,
+        counts_wrong_optimal,
+        bottom=bottom_wrong,
+        label="Wrong Optimal",
+        color=colors["Wrong_Optimal"],
+    )
+
+    bottom_error = bottom_wrong + np.array(counts_wrong_optimal)
+    plt.bar(
+        x,
+        counts_solver_error,
+        bottom=bottom_error,
+        label="Solver Error",
+        color=colors["Solver_Error"],
+    )
+
+    bottom_missing = bottom_error + np.array(counts_solver_error)
+    plt.bar(x, counts_missing, bottom=bottom_missing, label="Missing Data", color=colors["Missing"])
+
+    plt.xlabel("Strategy", fontsize=30)
+    plt.ylabel("Count", fontsize=30)
+    plt.title("Solution Outcomes by Strategy (Stacked)", fontsize=32)
+    plt.xticks(x, display_names, rotation=0, fontsize=22)
+    plt.yticks(fontsize=18)
+    plt.legend(loc="upper left", fontsize=18, framealpha=0.5)
+    plt.grid(axis="y", alpha=0.3)
+    bar_output_stacked = os.path.join(output_dir, "solution_outcomes_stacked_bar.jpg")
+    plt.tight_layout()
+    plt.savefig(bar_output_stacked, dpi=300, bbox_inches="tight")
+    plt.close()
+    print(f"Saved stacked bar plot to {bar_output_stacked}")
 
     def create_fraction_performance_profile(
         df: pd.DataFrame,
