@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from typing import Optional
+from typing import Dict, List, Optional
 
 import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
@@ -18,6 +18,58 @@ def _get_strategy_display_name(strategy: str) -> str:
     display_name = display_name.replace("hull", "Hull(ε-approx.)")
     display_name = display_name.replace("bigm", "BigM")
     return display_name
+
+
+def _filter_strategies(
+    strategies: list,
+    include_strategies: Optional[list] = None,
+    exclude_strategies: Optional[list] = None,
+) -> list:
+    """Filter strategies based on include/exclude lists."""
+    if include_strategies is not None:
+        strategies = [s for s in strategies if s in include_strategies]
+    if exclude_strategies is not None:
+        strategies = [s for s in strategies if s not in exclude_strategies]
+    return strategies
+
+
+def _get_strategy_style_maps() -> tuple:
+    """Get consistent style and color mappings for strategies."""
+    style_map = {
+        "gdp.bigm": "-",
+        "gdp.hull": "--",
+        "gdp.hull_exact": "-.",
+        "gdp.hull_reduced_y": ":",
+        "gdp.binary_multiplication": (0, (5, 1)),
+    }
+    color_map = {
+        "gdp.bigm": "blue",
+        "gdp.hull": "brown",
+        "gdp.hull_exact": "green",
+        "gdp.hull_reduced_y": "purple",
+        "gdp.binary_multiplication": "orange",
+    }
+    return style_map, color_map
+
+
+def _is_solution_correct(
+    row: pd.Series, ground_truth: dict, obj_tolerance: float, time_limit: float
+) -> bool:
+    """Check if a solution is correct (optimal, within time limit, and correct objective)."""
+    duration = row["Duration (sec)"]
+    status = row.get("Status", "unknown")
+    model_name = row["Model Name"]
+
+    # Must be within time limit and optimal status
+    if duration >= time_limit or status != "optimal":
+        return False
+
+    # Check objective value if available
+    if model_name in ground_truth and "Objective Value" in row:
+        obj_diff = abs(float(row["Objective Value"]) - float(ground_truth[model_name]))
+        return bool(obj_diff <= obj_tolerance)
+
+    return True
 
 
 def create_solution_time_comparison(
@@ -82,7 +134,7 @@ def create_solution_time_comparison(
     max_time = max(times1.max(), times2.max(), time_limit) * 1.2  # Add 20% margin
 
     # Plot diagonal line (x=y)
-    plt.plot([0, time_limit], [0, time_limit], "k--", alpha=0.5, linewidth=4, label="x=y")
+    plt.plot([0, time_limit], [0, time_limit], "k--", alpha=0.5, linewidth=6, label="x=y")
 
     # Add time limit line
     plt.axhline(
@@ -90,10 +142,10 @@ def create_solution_time_comparison(
         color="r",
         linestyle="--",
         alpha=0.7,
-        linewidth=4,
+        linewidth=6,
         label=f"Time limit {time_limit}s",
     )
-    plt.axvline(x=time_limit, color="r", linestyle="--", alpha=0.7, linewidth=4)
+    plt.axvline(x=time_limit, color="r", linestyle="--", alpha=0.7, linewidth=6)
 
     # Plot data points with different colors based on objective value difference
     blue_points = ~obj_different
@@ -448,6 +500,158 @@ def create_node_relaxation_comparison(
     print(f"Saved plot to {output_file}")
 
 
+def create_dolan_more_performance_profile(
+    df: pd.DataFrame,
+    output_dir: str,
+    time_limit: float = 3600,
+    obj_tolerance: float = 1e-4,
+    exclude_strategies: Optional[list] = None,
+    include_strategies: Optional[list] = None,
+    output_suffix: str = "",
+) -> None:
+    """
+    Create standard Dolan-Moré performance profiles.
+
+    For each problem instance, calculates the performance ratio rm = t_m,s / min_s(t_m,s)
+    where t_m,s is the time for method s on problem m.
+    Failed cases (timeout, wrong solution, missing data) are assigned rm = time_limit / min_time.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame containing the results
+    output_dir : str
+        Directory to save the plots
+    time_limit : float, optional
+        Time limit in seconds, by default 3600 (1 hour)
+    obj_tolerance : float, optional
+        Tolerance for determining if objective values are different, by default 1e-4
+    exclude_strategies : list, optional
+        List of strategies to exclude, by default None
+    include_strategies : list, optional
+        List of strategies to include (if None, include all strategies), by default None
+    output_suffix : str, optional
+        Suffix to add to output filenames, by default ""
+    """
+    print("Creating Dolan-Moré performance profiles...")
+
+    # Apply strategy filtering
+    strategies = _filter_strategies(
+        df["Strategy"].unique().tolist(), include_strategies, exclude_strategies
+    )
+
+    if not strategies:
+        print("No strategies available after filtering, skipping Dolan-Moré profiles")
+        return
+
+    # Get all unique model names
+    model_names = df["Model Name"].unique()
+
+    # Calculate ground truth for objective value filtering
+    ground_truth = {}
+    if "Objective Value" in df.columns:
+        optimal_solutions = df[df["Status"] == "optimal"]
+        ground_truth = optimal_solutions.groupby("Model Name")["Objective Value"].min().to_dict()
+
+    # For each model, collect valid solution times for each strategy
+    model_times: Dict[str, Dict[str, Optional[float]]] = {}
+    min_valid_time = float("inf")
+
+    for model in model_names:
+        model_data = df[df["Model Name"] == model]
+        model_times[model] = {}
+
+        for strategy in strategies:
+            strategy_data = model_data[model_data["Strategy"] == strategy]
+
+            if len(strategy_data) == 0:
+                # Missing data - will be assigned failure ratio
+                model_times[model][strategy] = None
+                continue
+
+            row = strategy_data.iloc[0]  # Assume one entry per model-strategy pair
+
+            # Check if solution is correct using helper function
+            if _is_solution_correct(row, ground_truth, obj_tolerance, time_limit):
+                duration = row["Duration (sec)"]
+                model_times[model][strategy] = duration
+                min_valid_time = min(min_valid_time, duration)
+            else:
+                # Timeout, wrong solution, or other failure
+                model_times[model][strategy] = None
+
+    if min_valid_time == float("inf"):
+        print("No valid solutions found, cannot create Dolan-Moré profiles")
+        return
+
+    # Calculate failure ratio
+    failure_ratio = time_limit / min_valid_time
+
+    # Calculate performance ratios for each strategy
+    strategy_ratios: Dict[str, List[float]] = {strategy: [] for strategy in strategies}
+
+    for model in model_names:
+        # Find minimum time for this model across all strategies
+        valid_times = [t for t in model_times[model].values() if t is not None]
+        if not valid_times:
+            # No strategy solved this model - skip it
+            continue
+
+        min_time_for_model = min(valid_times)
+
+        for strategy in strategies:
+            time_s = model_times[model][strategy]
+            if time_s is not None:
+                ratio = time_s / min_time_for_model
+            else:
+                ratio = failure_ratio
+            strategy_ratios[strategy].append(ratio)
+
+    # Create the plot
+    plt.figure(figsize=(12, 8))
+
+    # Get consistent style and color mappings
+    style_map, color_map = _get_strategy_style_maps()
+
+    for strategy in strategies:
+        ratios = sorted(strategy_ratios[strategy])
+        n_problems = len(ratios)
+
+        # Create x values (performance ratios) and y values (fraction of problems solved)
+        y_values = np.arange(1, n_problems + 1) / n_problems
+
+        style = style_map.get(strategy, "-")
+        color = color_map.get(strategy, "black")
+        display_name = _get_strategy_display_name(strategy)
+
+        plt.step(
+            ratios,
+            y_values,
+            where="post",
+            linewidth=6,
+            linestyle=style,
+            color=color,
+            label=display_name,
+        )
+
+    plt.xlabel("Performance Ratio", fontsize=28)
+    plt.ylabel("Fraction of Problems Solved", fontsize=28)
+    plt.xscale("log")
+    plt.xlim(1, failure_ratio * 1.1)
+    plt.ylim(0, 1)
+    plt.grid(True, alpha=0.3)
+    plt.legend(loc="lower right", fontsize=20, framealpha=0.4)
+    plt.tick_params(axis="both", which="major", labelsize=24)
+    plt.tight_layout()
+
+    # Save the figure
+    dolan_suffix = f"_{output_suffix}" if output_suffix else ""
+    output_file = os.path.join(output_dir, f"dolan_more_profile{dolan_suffix}.jpg")
+    plt.savefig(output_file, dpi=300, bbox_inches="tight")
+    plt.close()
+    print(f"Saved Dolan-Moré profile to {output_file}")
+
+
 def create_performance_profile(
     df: pd.DataFrame,
     output_dir: str,
@@ -521,20 +725,21 @@ def create_performance_profile(
     print(f"All unique strategies found in data: {list(strategies)}")
 
     # Apply strategy filtering
+    original_strategies = list(strategies)
+    strategies = _filter_strategies(strategies, include_strategies, exclude_strategies)
+
     if include_strategies is not None:
-        original_strategies = list(strategies)
-        strategies = [s for s in strategies if s in include_strategies]
         print(f"Filtering to include only strategies: {include_strategies}")
         print(f"Original strategies: {original_strategies}")
         print(f"Available strategies after filtering: {list(strategies)}")
 
-        # If no strategies match the filter, warn and return early
-        if not strategies:
-            print(
-                "Warning: No strategies match the include_strategies filter. \
-                    Skipping profile generation."
-            )
-            return
+    # If no strategies match the filter, warn and return early
+    if not strategies:
+        print(
+            "Warning: No strategies match the filtering criteria. \
+                Skipping profile generation."
+        )
+        return
 
     # Create individual performance profiles
     for strategy in strategies:
@@ -550,7 +755,7 @@ def create_performance_profile(
 
         # Create the plot
         plt.figure(figsize=(10, 6))
-        plt.step(x, y, where="post", linewidth=2)
+        plt.step(x, y, where="post", linewidth=4)
 
         # Add time limit line (3600 seconds = 1 hour)
         plt.axvline(
@@ -583,25 +788,8 @@ def create_performance_profile(
     # Create combined performance profile
     plt.figure(figsize=(12, 8))
 
-    # Define consistent style and color mappings for the known reformulation strategies
-    style_map = {
-        "gdp.bigm": "-",
-        "gdp.hull": "--",
-        "gdp.hull_exact": "-.",
-        "gdp.hull_reduced_y": ":",
-        "gdp.binary_multiplication": (0, (5, 1)),
-    }
-    color_map = {
-        "gdp.bigm": "blue",
-        "gdp.hull": "brown",
-        "gdp.hull_exact": "green",
-        "gdp.hull_reduced_y": "purple",
-        "gdp.binary_multiplication": "orange",
-    }
-
-    # Filter strategies for combined plot if exclude_strategies is provided
-    if exclude_strategies is not None:
-        strategies = [s for s in strategies if s not in exclude_strategies]
+    # Get consistent style and color mappings
+    style_map, color_map = _get_strategy_style_maps()
 
     # Plot each strategy with its assigned style and color
     strategy_lines = []
@@ -618,7 +806,7 @@ def create_performance_profile(
         display_name = _get_strategy_display_name(strategy)
 
         (line,) = plt.step(
-            x, y, where="post", linewidth=6, linestyle=style, color=color, label=display_name
+            x, y, where="post", linewidth=8, linestyle=style, color=color, label=display_name
         )
         strategy_lines.append(line)
         strategy_labels.append(display_name)
@@ -626,7 +814,7 @@ def create_performance_profile(
     if separate_time_limit_legend:
         # Add time limit line (no label)
         time_limit_line = plt.axvline(
-            x=time_limit, color="r", linestyle="--", alpha=0.7, linewidth=4
+            x=time_limit, color="r", linestyle="--", alpha=0.7, linewidth=6
         )
     else:
         # Add time limit line with label for main legend
@@ -635,7 +823,7 @@ def create_performance_profile(
             color="r",
             linestyle="--",
             alpha=0.7,
-            linewidth=4,
+            linewidth=6,
             label=f"Time limit {time_limit}s",
         )
 
@@ -726,7 +914,7 @@ def create_performance_profile(
                     gap_data,
                     n_gap,
                     where="post",
-                    linewidth=6,
+                    linewidth=8,
                     linestyle=style,
                     color=color,
                     label=display_name,
@@ -941,7 +1129,7 @@ def create_performance_profile(
                     x_runtime,
                     y_runtime,
                     where="post",
-                    linewidth=4,
+                    linewidth=6,
                     linestyle=style,
                     color=color,
                     label=display_name,
@@ -957,7 +1145,7 @@ def create_performance_profile(
                     gap_data,
                     y_offset + frac_gap,
                     where="post",
-                    linewidth=4,
+                    linewidth=6,
                     linestyle=style,
                     color=color,
                 )
@@ -1056,7 +1244,7 @@ def create_performance_profile(
                     x_runtime,
                     y_runtime,
                     where="post",
-                    linewidth=4,
+                    linewidth=6,
                     linestyle=style,
                     color=color,
                     label=display_name,
@@ -1072,7 +1260,7 @@ def create_performance_profile(
                     gap_data,
                     y_offset + n_gap,
                     where="post",
-                    linewidth=4,
+                    linewidth=6,
                     linestyle=style,
                     color=color,
                 )
@@ -1163,8 +1351,9 @@ def main() -> None:
         readme.write("1. Solution time comparison plots between strategies\n")
         readme.write("2. Performance profiles for each strategy\n")
         readme.write("3. Combined performance profile\n")
-        readme.write("4. Relaxation gap comparison plots\n")
-        readme.write("5. Node relaxation comparison plots\n\n")
+        readme.write("4. Dolan-Moré performance profiles (standard performance ratios)\n")
+        readme.write("5. Relaxation gap comparison plots\n")
+        readme.write("6. Node relaxation comparison plots\n\n")
         readme.write("Generated by generate_plots.py\n")
 
     # Check if results file exists
@@ -1244,6 +1433,22 @@ def main() -> None:
         specified_reformulations = ["gdp.hull_exact", "gdp.hull"]
         print(f"Requested strategies: {specified_reformulations}")
         create_performance_profile(
+            solver_df,
+            solver_dir,
+            time_limit=time_limit,
+            include_strategies=specified_reformulations,
+            output_suffix="hull_exact_vs_hull",
+        )
+
+        # Generate Dolan-Moré performance profiles
+        print("\nGenerating Dolan-Moré performance profiles...")
+        create_dolan_more_performance_profile(
+            solver_df, solver_dir, time_limit=time_limit, exclude_strategies=["gdp.hull_reduced_y"]
+        )
+
+        # Generate Dolan-Moré performance profiles for specified reformulations only
+        print("\nGenerating Dolan-Moré performance profiles for specific reformulations...")
+        create_dolan_more_performance_profile(
             solver_df,
             solver_dir,
             time_limit=time_limit,

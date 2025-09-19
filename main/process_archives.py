@@ -4,6 +4,7 @@ from typing import Optional
 
 import pandas as pd
 from generate_plots import (
+    create_dolan_more_performance_profile,
     create_node_relaxation_comparison,
     create_performance_profile,
     create_relaxation_gap_comparison,
@@ -117,6 +118,22 @@ def process_archive_folder(archive_folder: str) -> None:
         specified_reformulations = ["gdp.hull_exact", "gdp.hull"]
         print(f"Requested strategies: {specified_reformulations}")
         create_performance_profile(
+            solver_df,
+            solver_dir,
+            time_limit=1800,
+            include_strategies=specified_reformulations,
+            output_suffix="hull_exact_vs_hull",
+        )
+
+        # Generate Dolan-Moré performance profiles
+        print("\nGenerating Dolan-Moré performance profiles...")
+        create_dolan_more_performance_profile(
+            solver_df, solver_dir, time_limit=1800, exclude_strategies=["gdp.hull_reduced_y"]
+        )
+
+        # Generate Dolan-Moré performance profiles for specified reformulations only
+        print("\nGenerating Dolan-Moré performance profiles for specific reformulations...")
+        create_dolan_more_performance_profile(
             solver_df,
             solver_dir,
             time_limit=1800,
