@@ -634,8 +634,8 @@ def create_dolan_more_performance_profile(
             label=display_name,
         )
 
-    plt.xlabel("Performance Ratio", fontsize=28)
-    plt.ylabel("Fraction of Problems Solved", fontsize=28)
+    plt.xlabel("Performance Ratio", fontsize=34)
+    plt.ylabel("Fraction of Instances Solved", fontsize=32)
     plt.xscale("log")
     plt.xlim(1, failure_ratio * 1.1)
     plt.ylim(0, 1)
