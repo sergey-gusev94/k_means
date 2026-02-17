@@ -1,0 +1,393 @@
+Solving original (integer) problem with strategy gdp.hull_exact_conic_no_cholesky...
+--- Job model.gms Start 02/14/26 18:04:13 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:57153 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(1901) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/gurobi.opt
+--- model.gms(2859) 2 Mb
+--- Starting execution: elapsed 0:00:00.012
+--- model.gms(1910) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(1914) 5 Mb
+---   577 rows  315 columns  1,503 non-zeroes
+---   420 nl-code  168 nl-non-zeroes
+---   42 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 5.600E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 5.503E-03, 5.600E+01] - Zero values observed as well
+--- model.gms(1914) 3 Mb
+--- Executing GUROBI (Solvelink=5): elapsed 0:00:00.017
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/gurobi.opt"
+>>  NonConvex 2
+>>  Threads 1
+>>  MIPGap 1e-06
+>>  MIPGapAbs 1e-10
+>>  FeasibilityTol 1e-06
+>>  OptimalityTol 1e-06
+>>  IntFeasTol 1e-05
+Finished reading from "/local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/gurobi.opt"
+
+... GRB_LICENSE_FILE = /local/scratch/a/sgusev/gurobi.lic
+
+    Gurobi           52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+... GAMS/Gurobi Link license.
+... GMO Q Extraction (ThreePass): 0.00s
+
+    Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (linux64 - "Oracle Linux Server 9.7")
+    
+    CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+    Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+    
+    Non-default parameters:
+    TimeLimit  300
+    MIPGap  1e-06
+    LogToConsole  0
+    NonConvex  2
+    Threads  1
+    
+    Optimize a model with 534 rows, 314 columns and 1320 nonzeros (Min)
+    Model fingerprint: 0xa5e32eff
+    Model has 14 linear objective coefficients
+    Model has 42 quadratic constraints
+    Variable types: 272 continuous, 42 integer (0 binary)
+    Coefficient statistics:
+      Matrix range     [6e-03, 6e+01]
+      QMatrix range    [1e+00, 1e+00]
+      Objective range  [1e+00, 1e+00]
+      Bounds range     [1e+00, 6e+01]
+      RHS range        [1e+00, 1e+00]
+    Presolve removed 84 rows and 98 columns
+    Presolve time: 0.00s
+    Presolved: 450 rows, 216 columns, 1222 nonzeros
+    Presolved model has 42 quadratic constraint(s)
+    Variable types: 174 continuous, 42 integer (42 binary)
+    
+    Root relaxation: objective 0.000000e+00, 132 iterations, 0.00 seconds (0.00 work units)
+    
+        Nodes    |    Current Node    |     Objective Bounds      |     Work
+     Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+    
+         0     0    0.00000    0    2          -    0.00000      -     -    0s
+    H    0     0                       4.0592359    0.00000   100%     -    0s
+    H    0     0                       3.2853238    0.00000   100%     -    0s
+    *    0     0               0       3.2853238    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   25    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0    6    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0    6    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0    8    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   13    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0    5    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   26    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   11    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   13    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   23    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   25    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   26    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   23    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   23    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   11    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   13    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   25    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   23    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   13    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   13    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   10    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   11    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   15    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   16    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   23    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   21    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0    2    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   14    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   22    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   24    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   12    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   20    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   17    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   19    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     0    0.00000    0   18    3.28532    0.00000   100%     -    0s
+         0     2    0.00000    0   18    3.28532    0.00000   100%     -    0s
+    H    3     3                       2.5002577    0.00000   100%  30.3    0s
+    H   11    11                       2.3388231    0.00000   100%  48.0    0s
+    H   19    19                       2.3388219    0.00000   100%  61.4    0s
+    H   41    33                       2.3388217    0.00000   100%  45.4    0s
+    H   60    52                       2.3388216    0.00000   100%  43.0    0s
+    H  147    81                       1.9512907    0.00000   100%  40.7    0s
+    H  172    95                       1.9512899    0.00000   100%  40.6    0s
+    H  429   163                       1.9119363    0.41568  78.3%  46.8    0s
+    H  440   162                       1.9119352    0.41568  78.3%  48.5    1s
+    H  441   154                       1.9119352    0.41568  78.3%  48.4    1s
+    H  442   147                       1.9119352    0.41568  78.3%  48.3    1s
+    H  444   140                       1.9119352    0.41568  78.3%  48.6    1s
+    * 1891     0              28       1.9119351    1.91194  0.00%  42.1    2s
+    
+    Explored 1892 nodes (98920 simplex iterations) in 2.96 seconds (2.92 work units)
+    Thread count was 1 (of 96 available processors)
+    
+    Solution count 6: 1.91194 1.95129 2.33882 ... 4.05924
+    
+    Optimal solution found (tolerance 1.00e-06)
+    Best objective 1.911935101966e+00, best bound 1.911935101966e+00, gap 0.0000%
+    
+    User-callback calls 2006, time in user-callback 0.00 sec
+
+... Solving fixed model...
+
+    Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (linux64 - "Oracle Linux Server 9.7")
+    
+    CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+    Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+    
+    Non-default parameters:
+    TimeLimit  300
+    MIPGap  1e-06
+    LogToConsole  0
+    NonConvex  2
+    Threads  1
+    
+    Optimize a model with 534 rows, 314 columns and 1320 nonzeros (Min)
+    Model fingerprint: 0xcd9fbebc
+    Model has 14 linear objective coefficients
+    Model has 42 quadratic constraints
+    Coefficient statistics:
+      Matrix range     [6e-03, 6e+01]
+      QMatrix range    [1e+00, 1e+00]
+      Objective range  [1e+00, 1e+00]
+      Bounds range     [1e+00, 6e+01]
+      RHS range        [1e+00, 1e+00]
+    Presolve removed 518 rows and 280 columns
+    Presolve time: 0.00s
+    Presolved: 71 rows, 84 columns, 165 nonzeros
+    Presolved model has 14 second-order cone constraints
+    Ordering time: 0.00s
+    
+    Barrier statistics:
+     AA' NZ     : 5.130e+02
+     Factor NZ  : 7.190e+02
+     Factor Ops : 9.951e+03 (less than 1 second per iteration)
+     Threads    : 1
+    
+                      Objective                Residual
+    Iter       Primal          Dual         Primal    Dual     Compl     Time
+       0   5.00878246e+02 -3.74656490e+02  8.08e+00 3.44e+00  1.64e+01     0s
+       1   1.86175424e+02 -3.57593360e+01  8.89e-06 5.80e-02  1.84e+00     0s
+       2   3.17982211e+01 -7.25910336e+00  1.55e-06 5.35e-03  3.16e-01     0s
+       3   5.48398098e+00 -1.68304648e+00  1.05e-07 1.01e-03  5.80e-02     0s
+       4   3.13362440e+00  6.59901170e-01  3.06e-08 8.08e-05  2.00e-02     0s
+       5   2.22562550e+00  1.22744464e+00  1.07e-08 2.68e-05  8.05e-03     0s
+       6   2.01037910e+00  1.79621943e+00  2.42e-09 1.54e-06  1.73e-03     0s
+       7   1.92084021e+00  1.90422813e+00  1.31e-10 7.87e-09  1.34e-04     0s
+       8   1.91406408e+00  1.91069749e+00  3.36e-11 1.56e-10  2.71e-05     0s
+       9   1.91266761e+00  1.91145146e+00  6.56e-11 2.64e-12  9.81e-06     0s
+      10   1.91250212e+00  1.91167723e+00  4.08e-11 1.85e-13  6.65e-06     0s
+      11   1.91207028e+00  1.91182274e+00  9.85e-11 7.95e-14  2.00e-06     0s
+      12   1.91197367e+00  1.91190813e+00  3.70e-10 5.64e-13  5.29e-07     0s
+      13   1.91193525e+00  1.91193482e+00  1.02e-09 1.40e-12  3.50e-09     0s
+    
+    Barrier solved model in 13 iterations and 0.00 seconds (0.00 work units)
+    Optimal objective 1.91193525e+00
+    
+    
+    User-callback calls 0, time in user-callback 0.00 sec
+    Warning: to get QCP duals, please set parameter QCPDual to 1
+
+--- Reading solution for model GAMS_MODEL
+***
+*** Solver did not provide marginals for model GAMS_MODEL
+***
+--- Executing after solve: elapsed 0:00:03.023
+--- model.gms(1917) 3 Mb
+--- model.gms(2859) 5 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.hull_exact_conic_no_cholesky/no_mode/2026-02-14_18-04-12/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 02/14/26 18:04:16 elapsed 0:00:03.024
+Original problem solved. Time taken: 3.5908918380737305 seconds
+Original objective value: 1.911935249773356

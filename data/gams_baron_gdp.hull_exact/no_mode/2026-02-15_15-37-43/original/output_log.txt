@@ -1,0 +1,118 @@
+Solving original (integer) problem with strategy gdp.hull_exact...
+--- Job model.gms Start 02/15/26 15:37:43 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:46065 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(4299) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/baron.opt
+--- model.gms(6306) 2 Mb
+--- Starting execution: elapsed 0:00:00.023
+--- model.gms(4308) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(4312) 6 Mb
+--- Reset Solvelink = 2
+---   1,310 rows  631 columns  3,189 non-zeroes
+---   2,100 nl-code  375 nl-non-zeroes
+---   75 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 9.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 9.000E+01] - Zero values observed as well
+--- model.gms(4312) 4 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.031
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/baron.opt"
+>>  MaxThreads 1
+*** Error line 1: Unknown option "MaxThreads"
+>>  EpsR 1e-06
+>>  EpsA 1e-10
+>>  AbsConFeasTol 1e-06
+>>  RelConFeasTol 0
+>>  AbsIntFeasTol 1e-05
+>>  RelIntFeasTol 0
+Finished reading from "/local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+ For NLP: MINOS, SNOPT, External NLP, IPOPT, FILTERSQP
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 13.8483
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 13.5271
+ Preprocessing found feasible solution with value 9.55630
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1+         82.26    33MB     0.00000         9.55630        NA
+*         1          91.75    33MB     0.00000         3.33202        6.51%
+          1+        121.77    33MB     0.555887        3.33202       12.96%
+          1+        157.22    34MB     0.555887        3.33202       13.54%
+          1         165.85    34MB     0.555887        3.33202       14.11%
+          6+        195.80    91MB     0.555887        3.33202       27.21%
+          7         230.28    91MB     0.555887        3.33202       34.91%
+          9+        260.19    91MB     0.555887        3.33202       34.91%
+         11+        290.11    91MB     0.555887        3.33202       34.95%
+         11         300.00    91MB     0.555887        3.33202       34.97%
+
+                    *** Max. allowable time exceeded ***      
+
+ Wall clock time:                   300.91
+ Total CPU time used:               300.00
+
+ Total no. of BaR iterations:      11
+ Best solution found at node:       1
+ Max. no. of nodes in memory:       6
+ 
+ All done
+===========================================================================
+
+Solution      = 3.33201767776414  found at node 1
+Best possible = 0.55588711463446
+Absolute gap  = 2.77613056312968  optca = 1E-9
+Relative gap  = 0.833168017581626  optcr = 1E-6
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:05:01.002
+--- model.gms(4315) 4 Mb
+--- model.gms(6306) 6 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.hull_exact/no_mode/2026-02-15_15-37-43/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 02/15/26 15:42:45 elapsed 0:05:01.005
+Original problem solved. Time taken: 301.61983275413513 seconds
+Original objective value: 3.332017677764141
