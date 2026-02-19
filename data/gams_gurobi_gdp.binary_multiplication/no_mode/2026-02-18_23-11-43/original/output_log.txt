@@ -1,0 +1,200 @@
+Solving original (integer) problem with strategy gdp.binary_multiplication...
+--- Job model.gms Start 02/18/26 23:11:44 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:44943 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(237) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/gurobi.opt
+--- model.gms(426) 2 Mb
+--- Starting execution: elapsed 0:00:00.006
+--- model.gms(246) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(250) 5 Mb
+---   59 rows  64 columns  238 non-zeroes
+---   484 nl-code  176 nl-non-zeroes
+---   44 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 4.400E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.756E-01, 1.454E+00] - Zero values observed as well
+--- model.gms(250) 3 Mb
+--- Executing GUROBI (Solvelink=5): elapsed 0:00:00.009
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/gurobi.opt"
+>>  NonConvex 2
+>>  Threads 1
+>>  MIPGap 1e-06
+>>  MIPGapAbs 1e-10
+>>  FeasibilityTol 1e-06
+>>  OptimalityTol 1e-06
+>>  IntFeasTol 1e-05
+Finished reading from "/local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/gurobi.opt"
+
+... GRB_LICENSE_FILE = /local/scratch/a/sgusev/gurobi.lic
+
+    Gurobi           52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+... GAMS/Gurobi Link license.
+... GMO Q Extraction (ThreePass): 0.00s
+
+    Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (linux64 - "Oracle Linux Server 9.7")
+    
+    CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+    Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+    
+    Non-default parameters:
+    TimeLimit  300
+    MIPGap  1e-06
+    LogToConsole  0
+    NonConvex  2
+    Threads  1
+    
+    Optimize a model with 58 rows, 107 columns and 94 nonzeros (Min)
+    Model fingerprint: 0xc22c0fa6
+    Model has 11 linear objective coefficients
+    Model has 44 general nonlinear constraints (132 nonlinear terms)
+    Variable types: 63 continuous, 44 integer (0 binary)
+    Coefficient statistics:
+      Matrix range     [1e+00, 1e+00]
+      Objective range  [1e+00, 1e+00]
+      Bounds range     [1e+00, 4e+01]
+      RHS range        [1e+00, 1e+00]
+      NLCon coe range  [2e-02, 9e-01]
+    Presolve model has 44 nlconstr
+    Added 220 variables to disaggregate expressions
+    Presolve removed 44 rows and 0 columns
+    Presolve time: 0.00s
+    Presolved: 586 rows, 372 columns, 1370 nonzeros
+    Presolved model has 88 bilinear constraint(s)
+    
+    Solving non-convex MIQCP to global optimality
+    
+    Variable types: 328 continuous, 44 integer (44 binary)
+    Found heuristic solution: objective 8.8416881
+    
+    Root relaxation: objective 0.000000e+00, 30 iterations, 0.00 seconds (0.00 work units)
+    
+        Nodes    |    Current Node    |     Objective Bounds      |     Work
+     Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+    
+         0     0    0.00000    0   88    8.84169    0.00000   100%     -    0s
+    H    0     0                       8.8066666    0.00000   100%     -    0s
+         0     0    0.00000    0  104    8.80667    0.00000   100%     -    0s
+         0     0    0.00000    0  112    8.80667    0.00000   100%     -    0s
+         0     0    0.00000    0   92    8.80667    0.00000   100%     -    0s
+    H    0     0                       8.7960960    0.00000   100%     -    0s
+         0     0    0.00000    0   87    8.79610    0.00000   100%     -    0s
+         0     0    0.00000    0   95    8.79610    0.00000   100%     -    0s
+         0     0    0.00000    0   95    8.79610    0.00000   100%     -    0s
+    H    0     0                       1.9595299    0.00000   100%     -    0s
+    H    0     0                       1.9564264    0.00000   100%     -    0s
+    H    0     0                       1.9556262    0.00000   100%     -    0s
+    H    0     0                       1.9544309    0.00000   100%     -    0s
+    H    0     0                       1.9544015    0.00000   100%     -    0s
+    H    0     0                       1.9542182    0.00000   100%     -    0s
+    H    0     0                       1.7125434    0.00000   100%     -    0s
+    H    0     0                       1.3112174    0.00000   100%     -    0s
+         0     2    0.00000    0   95    1.31122    0.00000   100%     -    0s
+    H    3     3                       1.0696967    0.00000   100%   9.7    0s
+    H    3     3                       1.0685016    0.00000   100%   9.7    0s
+    H    3     3                       1.0684287    0.00000   100%   9.7    0s
+    H    6     5                       1.0615297    0.00000   100%  12.8    0s
+    H    6     5                       1.0607560    0.00000   100%  12.8    0s
+    H    6     5                       1.0606703    0.00000   100%  12.8    0s
+    H    8     7                       1.0601034    0.00000   100%  20.2    0s
+    H    8     7                       1.0600864    0.00000   100%  20.2    0s
+    H   24     7                       1.0004566    0.00000   100%  11.9    0s
+    H  151    69                       0.9703201    0.00000   100%  12.9    0s
+    H  329    85                       0.7209154    0.00000   100%  12.8    0s
+    H 1734   313                       0.7209146    0.34535  52.1%  15.6    1s
+    H 1749   296                       0.7209145    0.34535  52.1%  15.5    1s
+    H 2020   359                       0.7208577    0.34535  52.1%  15.4    1s
+      7985  1392     cutoff   49         0.72086    0.57157  20.7%  11.3    5s
+    *14821  2211              92       0.7208536    0.64197  10.9%   9.4    9s
+    *14822  2206              92       0.7208513    0.64197  10.9%   9.4    9s
+     16309  2336    0.66013   42   44    0.72085    0.64953  9.89%   9.1   10s
+     26934  2406     cutoff   46         0.72085    0.69986  2.91%   8.0   15s
+     38578  2240    0.71867   49   44    0.72085    0.71497  0.82%   7.3   20s
+     50839  2019     cutoff   60         0.72085    0.71900  0.26%   6.7   25s
+     63814  1766    0.72076   72   54    0.72085    0.72062  0.03%   6.0   30s
+     77220  1042     cutoff   88         0.72085    0.72081  0.01%   5.5   35s
+    
+    Cutting planes:
+      Learned: 1
+      MIR: 2
+      Flow cover: 6
+    
+    Explored 81717 nodes (435758 simplex iterations) in 36.73 seconds (24.57 work units)
+    Thread count was 1 (of 96 available processors)
+    
+    Solution count 10: 0.720851 0.720854 0.720858 ... 1.06067
+    
+    Optimal solution found (tolerance 1.00e-06)
+    Warning: max constraint violation (1.3894e-06) exceeds tolerance
+    Warning: max general constraint violation (1.3894e-06) exceeds tolerance
+    Best objective 7.208513019861e-01, best bound 7.208506396461e-01, gap 0.0001%
+    
+    User-callback calls 81748, time in user-callback 0.00 sec
+
+... Solving fixed model...
+
+    Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (linux64 - "Oracle Linux Server 9.7")
+    
+    CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+    Thread count: 48 physical cores, 96 logical processors, using up to 1 threads
+    
+    Non-default parameters:
+    TimeLimit  300
+    MIPGap  1e-06
+    LogToConsole  0
+    NonConvex  2
+    Threads  1
+    
+    Optimize a model with 58 rows, 107 columns and 94 nonzeros (Min)
+    Model fingerprint: 0x3887dd17
+    Model has 11 linear objective coefficients
+    Coefficient statistics:
+      Matrix range     [1e+00, 1e+00]
+      Objective range  [1e+00, 1e+00]
+      Bounds range     [2e-03, 1e+00]
+      RHS range        [1e+00, 1e+00]
+    Presolve removed 58 rows and 107 columns
+    Presolve time: 0.00s
+    Presolve: All rows and columns removed
+    Iteration    Objective       Primal Inf.    Dual Inf.      Time
+           0    7.2085130e-01   0.000000e+00   0.000000e+00      0s
+    
+    Solved in 0 iterations and 0.00 seconds (0.00 work units)
+    Optimal objective  7.208513020e-01
+    
+    User-callback calls 0, time in user-callback 0.00 sec
+
+--- Reading solution for model GAMS_MODEL
+***
+*** Solver did not provide marginals for model GAMS_MODEL
+***
+--- Executing after solve: elapsed 0:00:36.764
+--- model.gms(253) 3 Mb
+--- model.gms(426) 5 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means/data/gams_gurobi_gdp.binary_multiplication/no_mode/2026-02-18_23-11-43/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 02/18/26 23:12:21 elapsed 0:00:36.764
+Original problem solved. Time taken: 37.23979663848877 seconds
+Original objective value: 0.720851301986058

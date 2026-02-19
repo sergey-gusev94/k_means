@@ -1,0 +1,121 @@
+Solving original (integer) problem with strategy gdp.binary_multiplication...
+--- Job model.gms Start 02/19/26 07:38:30 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/model.gms
+    Output /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/output.lst
+    ScrDir /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:40025 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(279) 2 Mb
+--- $echo File /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/baron.opt
+--- model.gms(489) 2 Mb
+--- Starting execution: elapsed 0:00:00.006
+--- model.gms(288) 3 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(292) 5 Mb
+--- Reset Solvelink = 2
+---   67 rows  77 columns  357 non-zeroes
+---   912 nl-code  288 nl-non-zeroes
+---   48 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.280E+02] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.181E-01, 2.639E+00] - Zero values observed as well
+--- model.gms(292) 3 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.008
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/baron.opt"
+>>  MaxThreads 1
+*** Error line 1: Unknown option "MaxThreads"
+>>  EpsR 1e-06
+>>  EpsA 1e-10
+>>  AbsConFeasTol 1e-06
+>>  RelConFeasTol 0
+>>  AbsIntFeasTol 1e-05
+>>  RelIntFeasTol 0
+Finished reading from "/local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+ For NLP: MINOS, SNOPT, External NLP, IPOPT, FILTERSQP
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 20.5449
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 16.6330
+ Preprocessing found feasible solution with value 14.9576
+ Preprocessing found feasible solution with value 14.0586
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+*         1           4.32    24MB     0.00000         8.93825        3.64%
+          1           7.29    24MB     4.16837         8.93825       12.46%
+         11+         37.21    82MB     4.16837         8.93825       61.31%
+         24+         67.11    82MB     5.68165         8.93825       61.31%
+         55+         97.01    82MB     6.13289         8.93825       61.31%
+         75+        126.93    82MB     6.13289         8.93825       61.31%
+        131+        156.81    82MB     7.19933         8.93825       61.31%
+        198+        186.70    82MB     7.72888         8.93825       61.31%
+        327+        216.60    82MB     8.14666         8.93825       61.31%
+        460+        246.51    82MB     8.25563         8.93825       61.31%
+        483+        276.41    82MB     8.33637         8.93825       61.41%
+        563         300.00    82MB     8.60115         8.93825       64.07%
+
+                    *** Max. allowable time exceeded ***      
+
+ Wall clock time:                   301.07
+ Total CPU time used:               300.00
+
+ Total no. of BaR iterations:     563
+ Best solution found at node:       1
+ Max. no. of nodes in memory:      28
+ 
+ All done
+===========================================================================
+
+Solution      = 8.93825110131568  found at node 1
+Best possible = 8.60115093140628
+Absolute gap  = 0.337100169909398  optca = 1E-9
+Relative gap  = 0.0377143320419559  optcr = 1E-6
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:05:01.118
+--- model.gms(295) 3 Mb
+--- model.gms(489) 5 Mb
+--- Putfile results /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/results.dat
+--- Putfile statresults /local/scratch/a/sgusev/repos/k_means/data/gams_baron_gdp.binary_multiplication/no_mode/2026-02-19_07-38-29/original/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 02/19/26 07:43:31 elapsed 0:05:01.119
+Original problem solved. Time taken: 301.6258668899536 seconds
+Original objective value: 8.938251101315684
